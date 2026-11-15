@@ -7,6 +7,7 @@ on:
     paths:
       - "archive/part1.bin"
       - "archive/part2.b64"
+      - "archive/trigger"
 
 permissions:
   contents: write
@@ -28,8 +29,8 @@ jobs:
           xz -t "$RUNNER_TEMP/farid-source/project.tar.xz"
           tar -xJf "$RUNNER_TEMP/farid-source/project.tar.xz" -C "$RUNNER_TEMP/farid-source"
           test -f "$RUNNER_TEMP/farid-source/farid-scholarship-os/index.html"
-          cp -a "$RUNNER_TEMP/farid-scholarship-os/." .
-          rm -f archive/part1.bin archive/part2.b64
+          cp -a "$RUNNER_TEMP/farid-source/farid-scholarship-os/." .
+          rm -f archive/part1.bin archive/part2.b64 archive/trigger
 
       - name: Commit extracted project
         shell: bash
