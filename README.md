@@ -1,46 +1,52 @@
-# Farid Scholarship OS
+# FARID // Scholarship Tracker 2026–2027
 
-Workspace modular untuk membantu pengelolaan proses dan berkas beasiswa.
+A single-page scholarship tracker for 2026 graduates, focused on Electrical Engineering and Science study paths. The embedded tracker dataset covers 24 opportunities: 10 domestic scholarships and 14 overseas scholarships.
 
-## Teknologi
+## Features
 
-- HTML, CSS, dan JavaScript pada halaman utama `index.html`
-- Tailwind CSS melalui CDN
-- Vite untuk server pengembangan dan build
-- Google Sheets sebagai sumber data
-- Google Apps Script sebagai endpoint integrasi
+- Neocities-style wireframe interface and an alternate dark Bento workspace.
+- Scholarship status tracking and checklist state saved in the current browser with `localStorage`.
+- Built-in code viewer for the project structure, frontend snippets, and Google Apps Script example.
+- Google Sheets connection panel for checking a published CSV endpoint or a custom Apps Script URL.
 
-## Menjalankan secara lokal
+## Stack
 
-Pastikan Node.js sudah terpasang, kemudian jalankan:
+- HTML, CSS, and vanilla JavaScript in `index.html`.
+- Tailwind CSS loaded from its CDN.
+- Vite for local development and production builds.
+- Google Sheets / Google Apps Script integration examples.
+
+The current page is a standalone HTML/JavaScript frontend. React dependencies remain declared in `package.json`, but the current `index.html` does not mount a React application.
+
+## Run locally
+
+Install Node.js, then run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka alamat lokal yang ditampilkan Vite di terminal.
+Open the local address printed by Vite.
 
-Untuk membuat build produksi:
+Create and preview a production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Integrasi Google Sheets
+## Google Sheets
 
-Sumber Google Apps Script berada di `google-apps-script/Code.gs`.
+The spreadsheet ID used by the tracker is declared in `index.html` and `src/services/sheetsApi.js`.
 
-1. Buka Google Sheets yang digunakan proyek.
-2. Pilih **Extensions → Apps Script**.
-3. Salin kode dari `google-apps-script/Code.gs`.
-4. Periksa kembali `SHEET_ID` agar mengarah ke spreadsheet milikmu.
-5. Deploy sebagai **Web app** dan atur akses sesuai kebutuhan.
+To make the published CSV endpoint reachable, open the spreadsheet and use **File → Share → Publish to web**. The interface can also accept a custom Apps Script Web App URL.
 
-Jangan memasukkan password, token, atau kredensial pribadi ke repository publik.
+The example in `google-apps-script/Code.gs` exposes a `doGet()` endpoint that returns the spreadsheet tabs as JSON. It is a read endpoint; write-back operations are not implemented in this file.
 
-## Struktur proyek
+**Data note:** scholarship status and checklist selections are currently stored in the browser's local storage. They do not automatically sync between different browsers or devices. The connection panel currently checks endpoint reachability; it does not replace the embedded scholarship dataset with fetched records.
+
+## Project structure
 
 ```text
 .
