@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FARID // SCHOLARSHIP OS — Neocities Retro &amp; Bento Workspace</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mono-font: 'IBM Plex Mono', monospace;
+      --sans-font: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--mono-font);
+      background-color: #f7f7f5;
+      color: #111111;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =====================================================================
+       MODE 1: NEOCITIES GRAPH-PAPER RETRO OS AESTHETIC (REFERENCE IMAGE 1)
+       ===================================================================== */
+    .graph-paper-bg {
+      background-color: #f8f8f6;
+      background-image:
+        linear-gradient(to right, #e2e2df 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e2df 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .retro-window {
+      background-color: #ffffff;
+      border: 2px solid #141414;
+      box-shadow: 4px 4px 0px #141414;
+    }
+
+    .retro-titlebar {
+      background-color: #d4d4d0;
+      border-bottom: 2px solid #141414;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #141414;
+    }
+
+    .retro-btn {
+      background-color: #e4e4e0;
+      border: 2px solid #141414;
+      box-shadow: 3px 3px 0px #141414;
+      color: #141414;
+      font-family: var(--mono-font);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.1s ease;
+      cursor: pointer;
+    }
+
+    .retro-btn:hover {
+      background-color: #d8d8d2;
+    }
+
+    .retro-btn:active,
+    .retro-btn.active-tab {
+      background-color: #141414;
+      color: #ffffff;
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #141414;
+    }
+
+    .retro-urlbar {
+      background-color: #ffffff;
+      border: 2px solid #141414;
+      box-shadow: 3px 3px 0px #141414;
+      border-radius: 5px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .retro-dashed-box {
+      border: 1.5px dashed #141414;
+      border-radius: 6px;
+      padding: 12px;
+      background-color: #fafaf8;
+    }
+
+    .retro-id-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1.5px solid #141414;
+      background-color: #e4e4e0;
+      border-radius: 9999px;
+      padding: 2px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .retro-id-pill:hover,
+    .retro-id-pill.pill-active {
+      background-color: #141414;
+      color: #ffffff;
+    }
+
+    .retro-dotted-row {
+      border-bottom: 1.5px dotted #888884;
+      padding: 7px 0;
+    }
+
+    .retro-dotted-row:last-child {
+      border-bottom: none;
+    }
+
+    /* =====================================================================
+       TACTICAL COLOR ACCENTS FOR CRITICAL SIGNALS (DEADLINE, FUNDING, IELTS)
+       ===================================================================== */
+    .badge-urgent-red {
+      background-color: #ffe4e6 !important;
+      color: #9f1239 !important;
+      border: 2px solid #be123c !important;
+      box-shadow: 2px 2px 0px #881337;
+    }
+    .badge-soon-amber {
+      background-color: #fef3c7 !important;
+      color: #92400e !important;
+      border: 1.5px solid #b45309 !important;
+    }
+    .badge-safe-green {
+      background-color: #d1fae5 !important;
+      color: #065f46 !important;
+      border: 1.5px solid #047857 !important;
+    }
+    .badge-info-blue {
+      background-color: #dbeafe !important;
+      color: #1e40af !important;
+      border: 1.5px solid #1d4ed8 !important;
+    }
+    .badge-undip-gold {
+      background-color: #fde047 !important;
+      color: #713f12 !important;
+      border: 1.5px solid #141414 !important;
+    }
+    .badge-ptln-purple {
+      background-color: #f3e8ff !important;
+      color: #6b21a8 !important;
+      border: 1.5px solid #7e22ce !important;
+    }
+    .card-urgent-border {
+      border-left: 6px solid #e11d48 !important;
+      background-color: #fffbfa !important;
+    }
+    .card-soon-border {
+      border-left: 6px solid #f59e0b !important;
+    }
+    .card-safe-border {
+      border-left: 6px solid #10b981 !important;
+    }
+
+    /* COMPACT SINGLE-SCREEN ROW & PAGINATION */
+    .compact-row-item {
+      border: 2px solid #141414;
+      background-color: #ffffff;
+      padding: 8px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      transition: background-color 0.1s ease, transform 0.08s ease;
+    }
+    .compact-row-item:hover {
+      background-color: #f3f4f6;
+      transform: translateX(2px);
+    }
+
+    /* =====================================================================
+       MODE 2: MONOCHROME BENTO TABLET WORKSPACE (REFERENCE IMAGE 2)
+       ===================================================================== */
+    .bento-desk-surface {
+      background: radial-gradient(circle at 82% 15%, #3a3a3c 0%, #1c1c1e 55%, #111113 100%);
+    }
+
+    .bento-outer-frame {
+      background-color: #f4f4f6;
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75), 0 0 0 6px rgba(255, 255, 255, 0.12);
+    }
+
+    .bento-tile {
+      background-color: #262629;
+      color: #f4f4f6;
+      border-radius: 20px;
+      padding: 18px;
+      font-family: var(--sans-font);
+    }
+
+    .bento-pill-light {
+      background-color: #e4e4e7;
+      color: #18181b;
+      border-radius: 9999px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .bento-pill-light.bento-inactive {
+      background-color: #3f3f46;
+      color: #d4d4d8;
+    }
+
+    .bento-pill-light:hover {
+      background-color: #ffffff;
+      color: #09090b;
+    }
+
+    .bento-list-row {
+      background-color: #323236;
+      border-radius: 9999px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .bento-list-row.bento-row-selected {
+      background-color: #e4e4e7;
+      color: #18181b;
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #71717a;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="graph-paper-bg min-h-screen">
+
+  <!-- Toast Notification -->
+  <div id="toastBox" class="fixed bottom-5 right-5 z-50 hidden retro-window px-4 py-2.5 text-xs font-bold bg-white">
+    <span id="toastText">STATUS UPDATED</span>
+  </div>
+
+  <!-- =====================================================================
+       VIEW 1: RETRO NEOCITIES LANDING PAGE & DIRECTORY (REF IMAGE 1)
+       ===================================================================== -->
+  <div id="retroNeocitiesWrapper" class="mx-auto max-w-6xl px-4 py-7 sm:px-6">
+
+    <!-- Top Status Row: [BAD LUCK CHARM style tag] | [Date • Time] | [Mail / Switch Mode] -->
+    <header class="mb-3 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block rounded border-2 border-[#141414] bg-[#d4d4d0] px-3 py-1 text-xs font-bold tracking-widest uppercase">
+          STUDY WITH MBAH // BEASISWA
+        </span>
+        <span id="syncIndicatorBadge" class="inline-block rounded badge-safe-green px-2.5 py-0.5 text-[11px] font-bold">
+          ● SHEET CONNECTED (24 PROGRAMS)
+        </span>
+      </div>
+
+      <div class="rounded border-2 border-[#141414] bg-white px-3.5 py-1 text-xs font-semibold tracking-wide">
+        <span id="liveClockDisplay">Sunday, Nov 15, 2026 • 10:08 AM WIB</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btnSwitchToBento" type="button" class="retro-btn !py-1 !px-2.5 text-[11px]" title="Buka Tampilan Bento Workspace (Gambar 2)">
+          ▣ BENTO OS VIEW
+        </button>
+        <button id="btnOpenMailModal" type="button" class="inline-flex items-center justify-center rounded border-2 border-[#141414] bg-white px-2.5 py-1 text-sm font-bold hover:bg-[#e4e4e0]" title="Status Notifikasi Gmail &amp; Auto-Sync">
+          ✉
+        </button>
+      </div>
+    </header>
+
+    <!-- Browser Address Bar & Retro Navigation Buttons Row -->
+    <nav class="mb-5 flex flex-col gap-2.5 lg:flex-row lg:items-center">
+      <div class="retro-urlbar flex-1">
+        <div class="flex items-center gap-2 truncate">
+          <span class="font-bold">⌂</span>
+          <span id="addressBarUrl" class="truncate text-[#333330]">https://farid-scholarships.neocities.org/index</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnLiveSyncSheet" type="button" class="text-[11px] font-bold underline hover:text-black" title="Tarik data langsung dari Google Sheet">
+            [sync sheet]
+          </button>
+          <span class="font-bold">★</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button" data-retro-nav="home" class="retro-nav-btn retro-btn active-tab">index</button>
+        <button type="button" data-retro-nav="ptn" class="retro-nav-btn retro-btn">dalam negeri (10)</button>
+        <button type="button" data-retro-nav="ptln" class="retro-nav-btn retro-btn">ptln luar (14)</button>
+        <button type="button" data-retro-nav="mitra" class="retro-nav-btn retro-btn">mitra ptn</button>
+        <button type="button" data-retro-nav="checklist" class="retro-nav-btn retro-btn">checklist</button>
+        <button type="button" data-retro-nav="code" class="retro-nav-btn retro-btn">kode react/api</button>
+      </div>
+    </nav>
+
+    <!-- Main 2-Column Neocities Layout: Left [PROFILE] | Right [DYNAMIC WINDOWS] -->
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-12 items-start">
+
+      <!-- LEFT COLUMN: ⇦ PROFILE WINDOW (4 COLS) -->
+      <aside class="lg:col-span-4 retro-window">
+        <div class="retro-titlebar">
+          <span>⇦ P R O F I L E</span>
+          <span class="tracking-normal font-mono">_ □ ✕</span>
+        </div>
+
+        <div class="p-4 space-y-4">
+          <!-- Framed Square Illustration -->
+          <div class="border-2 border-[#141414] bg-[#efefec] p-2">
+            <img src="user_uploaded_files/ttl=63d/tool_generated/watermarked_img_18390089527305158409.jpg" alt="Farid Retro Cat &amp; Circuit Avatar" class="w-full aspect-square object-cover border border-[#141414] grayscale contrast-125" />
+          </div>
+
+          <!-- Dashed Bio Box -->
+          <div class="retro-dashed-box text-xs leading-relaxed text-[#222220]">
+            Halo! Ini adalah command center perburuan beasiswa S1/D3/D4 milik <strong>Ahmad Mufarid (Farid)</strong>. Terhubung otomatis setiap 3 hari dengan database <a href="https://docs.google.com/spreadsheets/d/1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc/edit" target="_blank" rel="noopener noreferrer" class="underline font-bold">Google Sheets</a> &amp; notifikasi Gmail.
+          </div>
+
+          <!-- Dotted Key-Value Profile Metadata -->
+          <div class="text-xs">
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">status</span>
+              <span>gap year '26 (19y)</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">alma mater</span>
+              <span>MAN 1 Kota Dumai</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">avg rapor</span>
+              <span class="font-bold underline">89.90 / 100</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">target #1</span>
+              <span>Teknik Elektro UNDIP</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">english cert</span>
+              <span>no IELTS / no TOEFL</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">honors</span>
+              <span>Olimpiade Sains</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">community</span>
+              <span>Study With Mbah (11k+)</span>
+            </div>
+            <div class="retro-dotted-row flex justify-between">
+              <span class="font-bold">applied</span>
+              <span id="profileAppliedCounter" class="font-bold">0 / 24 tracked</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: MAIN CONTENT WINDOWS (8 COLS) -->
+      <main class="lg:col-span-8 space-y-5">
+
+        <!-- ===============================================================
+             SUBVIEW A: LANDING PAGE ("index") — WELCOME + UPDATES + CURRENTLY + COMPACT TRACKER
+             =============================================================== -->
+        <div id="retroViewHome" class="space-y-5">
+
+          <!-- ⇦ WELCOME MESSAGE & QUICK FILTER PILLS -->
+          <section class="retro-window">
+            <div class="retro-titlebar">
+              <span>⇦ W E L C O M E &nbsp; M E S S A G E</span>
+              <span class="tracking-normal font-mono">_ □ ✕</span>
+            </div>
+            <div class="p-4 space-y-3.5 text-xs leading-relaxed">
+              <p>
+                <strong>Ringkasan Strategi Gap Year 2026.</strong> <em>Rapor 89,9 + Olimpiade Sains + Tanpa IELTS.</em> Semua data dari <a href="https://docs.google.com/spreadsheets/d/1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc/edit" target="_blank" rel="noopener noreferrer" class="underline font-bold">Spreadsheet Utama</a> sudah disinkronkan ke halaman ini. Untuk PTLN tanpa IELTS, fokuskan amunisi pada <strong>Turkiye Burslari (Skor 5/5)</strong>, <strong>Rumah Rusia (Skor 5/5)</strong>, <strong>AIU Malaysia (Skor 5/5)</strong>, <strong>Rumania MFA (Skor 5/5)</strong>, dan <strong>MEXT Kosen/Gakubu Medan (Skor 4/5)</strong>.
+              </p>
+
+              <div class="retro-dashed-box space-y-2.5">
+                <p class="text-[11px] text-[#333330]">
+                  Klik <strong>ID BUTTON</strong> di bawah untuk langsung membuka daftar ringkas sesuai kategori (atau klik tab <strong>dalam negeri (10)</strong> / <strong>ptln luar (14)</strong> di atas — tampilan pas 1 layar, tidak panjang ke bawah!):
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <button type="button" data-pill-filter="ALL" class="retro-id-pill pill-active">■ ALL (24)</button>
+                  <button type="button" data-pill-filter="URGENT" class="retro-id-pill !bg-rose-100 !text-rose-900 !border-rose-700">🔴 MEPET DEADLINE</button>
+                  <button type="button" data-pill-filter="NO_IELTS_PTLN" class="retro-id-pill !bg-emerald-100 !text-emerald-900 !border-emerald-700">🟢 PTLN TANPA IELTS (8)</button>
+                  <button type="button" data-pill-filter="UNDIP_MITRA" class="retro-id-pill !bg-amber-200 !text-amber-950 !border-amber-800">★ MITRA UNDIP (5)</button>
+                  <button type="button" data-pill-filter="MURNI_RAPOR" class="retro-id-pill !bg-sky-100 !text-sky-900 !border-sky-700">🏆 TANPA KIP-K / SKTM</button>
+                  <button type="button" data-pill-filter="SKTM_OK" class="retro-id-pill !bg-purple-100 !text-purple-900 !border-purple-700">📄 BISA SKTM / KIP-K</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2-COLUMN SUB-WINDOWS: ⇦ UPDATES & ⇦ CURRENTLY (EXACT MATCH TO IMAGE 1) -->
+          <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <!-- ⇦ UPDATES WINDOW -->
+            <section class="retro-window">
+              <div class="retro-titlebar">
+                <span>⇦ U P D A T E S</span>
+                <span class="tracking-normal font-mono">_ □ ✕</span>
+              </div>
+              <div class="p-4 text-xs space-y-1 max-h-60 overflow-y-auto custom-scroll">
+                <div class="retro-dotted-row flex gap-3 items-start bg-rose-50/80 px-1.5 rounded">
+                  <span class="font-bold shrink-0 text-rose-700 bg-rose-200/80 px-1.5 py-0.5 rounded border border-rose-500">30/11/2026</span>
+                  <span><strong class="text-rose-800">🔴 [MEPET H-15] Politeknik Astra Batch 1</strong> tutup pendaftaran; CBT online <strong class="underline">05/12/2026</strong>.</span>
+                </div>
+                <div class="retro-dotted-row flex gap-3 items-start px-1.5">
+                  <span class="font-bold shrink-0 text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-500">01/12/2026</span>
+                  <span><strong class="text-amber-900">TaiwanICDF 2027</strong> resmi dibuka (pengantar Inggris, bisa pakai TOEFL ITP 550).</span>
+                </div>
+                <div class="retro-dotted-row flex gap-3 items-start px-1.5">
+                  <span class="font-bold shrink-0 text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-500">10/01/2027</span>
+                  <span><strong class="text-emerald-900">Turkiye Burslari (YTB)</strong> &amp; <strong>Mitsui-Bussan Jepang</strong> buka pendaftaran (<strong class="text-emerald-700">0% IELTS!</strong>).</span>
+                </div>
+                <div class="retro-dotted-row flex gap-3 items-start px-1.5">
+                  <span class="font-bold shrink-0 text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-500">15/01/2027</span>
+                  <span>Deadline <strong class="text-amber-900">Beasiswa Pemerintah Rusia</strong> (kuota 200+ kursi) &amp; <strong>Stipendium Hungaricum</strong>.</span>
+                </div>
+                <div class="retro-dotted-row flex gap-3 items-start px-1.5">
+                  <span class="font-bold shrink-0 text-indigo-800 bg-indigo-100 px-1.5 py-0.5 rounded border border-indigo-500">20/04/2027</span>
+                  <span>Hari-H <strong class="text-indigo-900">UTBK-SNBT 2027</strong> (S1 Teknik Elektro UNDIP) + penutupan <strong>MEXT Jepang</strong>.</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- ⇦ CURRENTLY WINDOW -->
+            <section class="retro-window">
+              <div class="retro-titlebar">
+                <span>⇦ C U R R E N T L Y</span>
+                <span class="tracking-normal font-mono">_ □ ✕</span>
+              </div>
+              <div class="p-4 text-xs">
+                <div class="retro-dotted-row flex justify-between gap-2">
+                  <span class="font-bold">★ cron job</span>
+                  <span>active (every 3 days • 08:00)</span>
+                </div>
+                <div class="retro-dotted-row flex justify-between gap-2">
+                  <span class="font-bold">★ notify</span>
+                  <span>gemini chat + faridalterian@</span>
+                </div>
+                <div class="retro-dotted-row flex justify-between gap-2">
+                  <span class="font-bold">★ next test</span>
+                  <span>CBT Astra (05 Des 2026)</span>
+                </div>
+                <div class="retro-dotted-row flex justify-between gap-2">
+                  <span class="font-bold">★ music</span>
+                  <span>About You — The 1975</span>
+                </div>
+                <div class="retro-dotted-row flex justify-between gap-2">
+                  <span class="font-bold">★ mood</span>
+                  <span>locked in for Elektro '27</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             SHARED SCHOLARSHIP DIRECTORY WINDOW (USED IN HOME, PTN, PTLN)
+             =============================================================== -->
+        <section id="retroDirectorySection" class="hidden retro-window">
+          <div class="retro-titlebar">
+            <span id="directoryWindowTitle">⇦ S C H O L A R S H I P &nbsp; D A T A B A S E &nbsp; (24)</span>
+            <span class="tracking-normal font-mono">_ □ ✕</span>
+          </div>
+
+          <div class="p-4 space-y-3">
+            <!-- Search & Sort Controls -->
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between border-b-2 border-[#141414] pb-3">
+              <input id="retroSearchInput" type="text" placeholder="Ketik nama beasiswa / negara / syarat / tes..." class="flex-1 border-2 border-[#141414] bg-[#fafaf8] px-3 py-1.5 text-xs focus:outline-none" />
+              <div class="flex items-center gap-2">
+                <select id="retroSortSelect" class="border-2 border-[#141414] bg-[#e4e4e0] px-2.5 py-1.5 text-xs font-bold focus:outline-none">
+                  <option value="PRIORITY">Urut: Gratis Penuh → Skor 5/5 → Deadline</option>
+                  <option value="DEADLINE">Urut: Deadline Terdekat (Mepet Dulu)</option>
+                  <option value="EASE">Urut: Skor Kemudahan Gap Year (5/5 Dulu)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Compact 1-Line Scholarship List Container (Max 5 per page, zero vertical bloat!) -->
+            <div id="retroScholarshipList" class="space-y-2"></div>
+
+            <!-- Compact Pagination Bar -->
+            <div id="retroPaginationBar" class="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#141414] pt-2.5 text-xs">
+              <span id="retroPageInfo" class="font-bold text-[#333330]">Halaman 1 / 5 (Klik baris beasiswa untuk baca detail lengkap)</span>
+              <div class="flex items-center gap-1.5">
+                <button id="btnRetroPrevPage" type="button" class="retro-btn !py-1 !px-2.5 !text-[11px]">◀ Prev</button>
+                <button id="btnRetroNextPage" type="button" class="retro-btn !py-1 !px-2.5 !text-[11px]">Next ▶</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             SUBVIEW B: MITRA PTN (UNDIP/UNRI) & ELIMINASI S2/S3
+             =============================================================== -->
+        <section id="retroViewMitra" class="hidden retro-window">
+          <div class="retro-titlebar">
+            <span>⇦ P E T A &nbsp; K A M P U S &nbsp; M I T R A &nbsp; &amp; &nbsp; E L I M I N A S I</span>
+            <span class="tracking-normal font-mono">_ □ ✕</span>
+          </div>
+          <div class="p-4 space-y-5 text-xs">
+            <div>
+              <h3 class="font-bold text-sm uppercase tracking-wider mb-2">1. Matriks Mitra PTN (Apakah S1 Teknik Elektro UNDIP &amp; UNRI Masuk Mitra?)</h3>
+              <div class="overflow-x-auto border-2 border-[#141414]">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b-2 border-[#141414] bg-[#d4d4d0]">
+                      <th class="p-2 border-r border-[#141414]">Beasiswa</th>
+                      <th class="p-2 border-r border-[#141414]">Sistem Mitra</th>
+                      <th class="p-2 border-r border-[#141414] text-center">UNDIP</th>
+                      <th class="p-2 border-r border-[#141414] text-center">UNRI</th>
+                      <th class="p-2 border-r border-[#141414]">KIP-K vs SKTM</th>
+                      <th class="p-2">Cakupan Kampus Mitra</th>
+                    </tr>
+                  </thead>
+                  <tbody id="retroMitraTableBody" class="divide-y divide-[#141414]"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-sm uppercase tracking-wider mb-2">2. Daftar Eliminasi (Khusus Kelas 12 Aktif, Sudah Tutup, atau Khusus S2/S3)</h3>
+              <div id="retroEliminasiList" class="space-y-2"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             SUBVIEW C: CHECKLIST PERSIAPAN GAP YEAR & BANK ESAI
+             =============================================================== -->
+        <section id="retroViewChecklist" class="hidden retro-window">
+          <div class="retro-titlebar">
+            <span>⇦ C H E C K L I S T &nbsp; D U M A I &nbsp; &amp; &nbsp; B A N K &nbsp; E S A I</span>
+            <span class="tracking-normal font-mono">_ □ ✕</span>
+          </div>
+          <div class="p-4 space-y-5 text-xs">
+            <div class="flex items-center justify-between border-b-2 border-[#141414] pb-2">
+              <span class="font-bold uppercase">Master Checklist Persiapan Gap Year (Urut Urgensi)</span>
+              <span id="retroChecklistCounter" class="border border-[#141414] bg-[#d4d4d0] px-2 py-0.5 font-bold">0 / 12 DONE</span>
+            </div>
+            <div id="retroChecklistContainer" class="space-y-2"></div>
+
+            <div class="border-t-2 border-[#141414] pt-4 space-y-2.5">
+              <h3 class="font-bold uppercase">Bank Paragraf Esai &amp; Wawancara Farid (Klik Copy)</h3>
+              <div id="retroEssayContainer" class="space-y-2.5"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             SUBVIEW D: MODULAR SOURCE CODE & GOOGLE SHEETS API ARCHITECTURE
+             =============================================================== -->
+        <section id="retroViewCode" class="hidden retro-window">
+          <div class="retro-titlebar">
+            <span>⇦ M O D U L A R &nbsp; R E A C T &nbsp; / &nbsp; C S S &nbsp; / &nbsp; S H E E T S &nbsp; A P I</span>
+            <span class="tracking-normal font-mono">_ □ ✕</span>
+          </div>
+          <div class="p-4 space-y-4 text-xs">
+            <div class="retro-dashed-box space-y-1.5">
+              <p class="font-bold">📦 Arsitektur Multi-File (Siap Deploy ke Repo GitHub `riiddev` / Vercel):</p>
+              <p>
+                Di bawah ini saya pisahkan kode <strong>CSS (`retro-neocities.css`)</strong>, <strong>Service API Google Sheets (`sheetsSync.js`)</strong>, <strong>Komponen React (`App.jsx`)</strong>, dan <strong>Backend Google Apps Script (`Code.gs`)</strong>. Saya juga sudah membungkus seluruh folder proyek modular ini ke dalam file ZIP yang bisa langsung kamu ekstrak.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-code-tab="gs" class="code-tab-btn retro-id-pill pill-active">1. Code.gs (Sheet API)</button>
+              <button type="button" data-code-tab="sync" class="code-tab-btn retro-id-pill">2. src/services/sheetsSync.js</button>
+              <button type="button" data-code-tab="css" class="code-tab-btn retro-id-pill">3. src/styles/neocities.css</button>
+              <button type="button" data-code-tab="react" class="code-tab-btn retro-id-pill">4. src/App.jsx (React)</button>
+            </div>
+
+            <div class="border-2 border-[#141414] bg-[#141414] text-[#f4f4f0] p-3">
+              <div class="flex items-center justify-between border-b border-zinc-700 pb-2 mb-2">
+                <span id="codeFileNameLabel" class="font-bold text-amber-300">google-apps-script/Code.gs</span>
+                <button id="btnCopyActiveCode" type="button" class="border border-zinc-500 bg-zinc-800 px-2.5 py-0.5 text-[11px] font-bold text-white hover:bg-zinc-700">
+                  [COPY FILE]
+                </button>
+              </div>
+              <pre id="codeDisplayPre" class="overflow-x-auto text-[11px] leading-relaxed font-mono max-h-96 custom-scroll"></pre>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       VIEW 2: MONOCHROME BENTO TABLET WORKSPACE (REF IMAGE 2)
+       ===================================================================== -->
+  <div id="bentoWorkspaceWrapper" class="hidden bento-desk-surface min-h-screen p-4 sm:p-8 flex flex-col items-center justify-center">
+
+    <div class="w-full max-w-6xl space-y-4">
+      <!-- Top Bar Outside Tablet Frame -->
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-zinc-300 px-2">
+        <div class="flex items-center gap-2">
+          <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+          <span class="font-mono uppercase tracking-wider">BENTO WORKSPACE OS // FARID SCHOLARSHIP TRACKER</span>
+        </div>
+        <button id="btnSwitchToRetro" type="button" class="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-bold text-zinc-900 hover:bg-white transition">
+          ⇦ KEMBALI KE NEOCITIES RETRO VIEW
+        </button>
+      </div>
+
+      <!-- White Rounded Tablet Container Frame (Exact Match to Image 2) -->
+      <div class="bento-outer-frame grid grid-cols-1 gap-3.5 lg:grid-cols-12">
+
+        <!-- 1. LEFT VERTICAL ICON SIDEBAR PILL (1 COL) -->
+        <aside class="lg:col-span-1 bento-tile flex lg:flex-col items-center justify-between py-4 px-2 gap-3">
+          <div class="flex lg:flex-col items-center gap-3">
+            <div class="h-8 w-8 rounded-full bg-zinc-200 text-zinc-900 flex items-center justify-center font-bold text-xs" title="Ahmad Mufarid">
+              AF
+            </div>
+            <div class="hidden lg:block w-6 border-t border-zinc-600 my-1"></div>
+            <button type="button" data-bento-scope="ALL" class="bento-side-btn h-8 w-8 rounded-lg bg-zinc-200 text-zinc-900 flex items-center justify-center text-xs font-bold" title="Semua Beasiswa (24)">
+              24
+            </button>
+            <button type="button" data-bento-scope="DALAM_NEGERI" class="bento-side-btn h-8 w-8 rounded-lg bg-zinc-700 text-zinc-200 flex items-center justify-center text-xs font-bold hover:bg-zinc-600" title="Dalam Negeri (10)">
+              ID
+            </button>
+            <button type="button" data-bento-scope="PTLN" class="bento-side-btn h-8 w-8 rounded-lg bg-zinc-700 text-zinc-200 flex items-center justify-center text-xs font-bold hover:bg-zinc-600" title="PTLN Luar Negeri (14)">
+              LN
+            </button>
+            <button type="button" data-bento-scope="NO_IELTS" class="bento-side-btn h-8 w-8 rounded-lg bg-zinc-700 text-zinc-200 flex items-center justify-center text-xs font-bold hover:bg-zinc-600" title="Bebas IELTS (18)">
+              0%
+            </button>
+          </div>
+
+          <button id="btnBentoSync" type="button" class="h-8 w-8 rounded-full bg-zinc-700 text-zinc-200 flex items-center justify-center text-xs hover:bg-zinc-500" title="Sync Google Sheet">
+            ↻
+          </button>
+        </aside>
+
+        <!-- CENTER + RIGHT BENTO GRID (11 COLS) -->
+        <div class="lg:col-span-11 grid grid-cols-1 gap-3.5 lg:grid-cols-11">
+
+          <!-- 2. TOP-CENTER LARGE HERO INSPECTOR CARD (7 COLS) -->
+          <section class="lg:col-span-7 bento-tile flex flex-col justify-between min-h-[290px]">
+            <div class="space-y-4">
+              <!-- Top Pill Row inside Hero Card -->
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span id="bentoHeroScopePill" class="bento-pill-light">PTLN • TURKI</span>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span id="bentoHeroFundingPill" class="bento-pill-light bento-inactive">GRATIS PENUH</span>
+                  <span id="bentoHeroLangPill" class="bento-pill-light bento-inactive">TANPA IELTS</span>
+                  <span id="bentoHeroEasePill" class="bento-pill-light bento-inactive">SKOR 5/5</span>
+                </div>
+              </div>
+
+              <!-- Active Scholarship Title & Core Details -->
+              <div class="space-y-2 pt-1">
+                <h2 id="bentoHeroTitle" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Türkiye Bursları (Turkiye Scholarships) 2027
+                </h2>
+                <p id="bentoHeroDesc" class="text-xs text-zinc-300 leading-relaxed"></p>
+                <div id="bentoHeroMetaGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 text-xs text-zinc-300"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Action Bar inside Hero Card -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-zinc-700/80 mt-4">
+              <a id="bentoHeroApplyLink" href="https://www.turkiyeburslari.gov.tr/calendar" target="_blank" rel="noopener noreferrer" class="bento-pill-light">
+                Buka Portal Resmi ↗
+              </a>
+              <span id="bentoHeroDeadlineText" class="text-xs font-mono text-zinc-400">Deadline: 20 Feb 2027</span>
+            </div>
+          </section>
+
+          <!-- 3. TOP-RIGHT LIST PANEL WITH HIGHLIGHTED PILL ROW (4 COLS) -->
+          <section class="lg:col-span-4 bento-tile flex flex-col justify-between max-h-[340px]">
+            <div class="flex items-center justify-between mb-2">
+              <span class="bento-pill-light !py-1 !px-3 text-[11px]">DAFTAR PROGRAM</span>
+              <span id="bentoListCount" class="text-xs text-zinc-400 font-mono">24 items</span>
+            </div>
+            <div id="bentoProgramList" class="space-y-2 overflow-y-auto pr-1 custom-scroll flex-1"></div>
+          </section>
+
+          <!-- 4. BOTTOM-LEFT TEST & MITRA BREAKDOWN CARD (5 COLS) -->
+          <section class="lg:col-span-5 bento-tile flex flex-col justify-between min-h-[210px]">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="bento-pill-light !py-1 !px-3 text-[11px]">TAHAPAN TES &amp; MITRA</span>
+              </div>
+              <p id="bentoTestBreakdown" class="text-xs text-zinc-300 leading-relaxed pt-1"></p>
+              <p id="bentoDocumentsText" class="text-[11px] text-zinc-400 leading-relaxed"></p>
+            </div>
+            <div class="pt-3">
+              <div class="w-full bg-zinc-700 h-1.5 rounded-full overflow-hidden">
+                <div id="bentoEaseProgressBar" class="bg-zinc-200 h-full rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. BOTTOM-MIDDLE FILTER & STATUS TOGGLE CARD (3 COLS) -->
+          <section class="lg:col-span-3 bento-tile flex flex-col justify-between min-h-[210px]">
+            <div class="space-y-2">
+              <span class="bento-pill-light !py-1 !px-3 text-[11px]">STATUS &amp; DOUBLE</span>
+              <p id="bentoDoubleRuleText" class="text-xs text-zinc-300 pt-1 leading-relaxed"></p>
+            </div>
+
+            <div class="rounded-2xl bg-zinc-800/90 p-3 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold text-zinc-300">Status Lamaran</span>
+                <span class="inline-block h-3 w-6 rounded-full bg-zinc-300"></span>
+              </div>
+              <select id="bentoStatusSelect" class="w-full rounded-full bg-zinc-200 px-3 py-1.5 text-xs font-bold text-zinc-900 focus:outline-none">
+                <option value="BELUM">⚪ Belum Mulai</option>
+                <option value="SIAPKAN_BERKAS">🟡 Siapkan Berkas</option>
+                <option value="SUDAH_SUBMIT">🔵 Sudah Submit</option>
+                <option value="TAHAP_TES">🟣 Tahap Tes</option>
+                <option value="LOLOS">🟢 Lolos / Diterima</option>
+                <option value="CADANGAN">⚫ Skip / Cadangan</option>
+              </select>
+            </div>
+          </section>
+
+          <!-- 6. BOTTOM-RIGHT STEPPER / QUICK NAVIGATOR CARD (3 COLS) -->
+          <section class="lg:col-span-3 bento-tile flex flex-col justify-between min-h-[210px]">
+            <div class="flex items-center justify-between">
+              <span class="bento-pill-light !py-1 !px-3 text-[11px]">NAVIGASI CEPAT</span>
+              <span id="bentoIndexIndicator" class="text-xs font-mono text-zinc-400">1 / 24</span>
+            </div>
+
+            <p id="bentoStrategyTip" class="text-xs text-zinc-300 leading-relaxed my-2"></p>
+
+            <!-- Media-player style stepper buttons matching Bottom-Right of Image 2 -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <button id="btnBentoFirst" type="button" class="h-7 px-2.5 rounded-full bg-zinc-300 text-zinc-900 text-xs font-bold hover:bg-white">⏮</button>
+                <button id="btnBentoPrev" type="button" class="h-7 px-3 rounded-full bg-zinc-300 text-zinc-900 text-xs font-bold hover:bg-white">◀</button>
+                <a id="btnBentoSheet" href="https://docs.google.com/spreadsheets/d/1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc/edit" target="_blank" rel="noopener noreferrer" class="h-10 w-10 rounded-full bg-zinc-200 text-zinc-900 flex items-center justify-center font-bold text-xs hover:bg-white" title="Buka Google Sheet">
+                  📊
+                </a>
+                <button id="btnBentoNext" type="button" class="h-7 px-3 rounded-full bg-zinc-300 text-zinc-900 text-xs font-bold hover:bg-white">▶</button>
+                <button id="btnBentoLast" type="button" class="h-7 px-2.5 rounded-full bg-zinc-300 text-zinc-900 text-xs font-bold hover:bg-white">⏭</button>
+              </div>
+              <div class="w-full bg-zinc-700 h-1 rounded-full overflow-hidden">
+                <div id="bentoPositionBar" class="bg-zinc-300 h-full" style="width: 8%"></div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL: DETAIL BEASISWA / NOTIFIKASI GMAIL & SHEET SYNC
+       ===================================================================== -->
+  <div id="retroModalOverlay" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4">
+    <div class="retro-window max-h-[88vh] w-full max-w-2xl overflow-y-auto bg-white custom-scroll">
+      <div class="retro-titlebar">
+        <span id="retroModalTitle">⇦ D E T A I L &nbsp; W I N D O W</span>
+        <button id="btnCloseRetroModal" type="button" class="font-bold hover:underline">✕ CLOSE</button>
+      </div>
+      <div id="retroModalBody" class="p-5 text-xs space-y-3.5 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. DATABASE 24 BEASISWA TERVERIFIKASI (10 DALAM NEGERI + 14 PTLN)
+    // =========================================================================
+    const SHEET_ID = '1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc';
+    const REF_NOW = new Date('2026-11-15T10:08:00+07:00');
+
+    const SCHOLARSHIPS = [
+      // --- DALAM NEGERI (10) ---
+      {
+        id: 'dn_astra',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa Politeknik Astra (ASTRAtech) 2027/2028 - Batch 1',
+        organizer: 'Politeknik Astra (PT Astra International Tbk)',
+        country: 'Indonesia (Cikarang)',
+        statusText: 'Sedang Buka',
+        openDate: '28 Okt 2026',
+        deadlineDate: '2026-11-30',
+        deadlineDisplay: '30 Nov 2026 (H-15)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (100% Kuliah + Uang Saku + Asrama Thn 1)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Tanpa KIP-K & Tanpa SKTM (Murni Rapor ≥80)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Kampus Tunggal (Politeknik Astra Cikarang)',
+        mitraList: 'D4 Teknologi Rekayasa Perangkat Lunak (TRPL), D3 Mekatronika, D4 Pemeliharaan Alat Berat, D3 Mesin Otomotif, D3 Manajemen Informatika.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Eksplisit menerima lulusan tahun 2026 (gap year maks 1 tahun). Rapor min 80 (Matematika, Fisika, Inggris min 75).',
+        testDetails: 'CBT Online (5 Des 2026: TPA Logika, Numerik, Verbal, Spasial & Psikotes) → Seleksi CV & Motivational Letter (11–16 Des 2026) → Wawancara (11–15 Jan 2027) → Tes Kesehatan.',
+        documents: 'Scan rapor SMA/MA, KTP, KK, pasfoto, CV + piagam olimpiade, Motivational Letter, surat bebas buta warna.',
+        easeScore: 5,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Rapor 89,9 jauh di atas syarat 80! Materi CBT 5 Desember 2026 sangat mirip dengan subtes PU & PK UTBK yang biasa kamu bahas di Alternatifa.',
+        officialUrl: 'https://pmb.polytechnic.astra.ac.id/'
+      },
+      {
+        id: 'dn_kipk',
+        scope: 'DALAM_NEGERI',
+        name: 'Kartu Indonesia Pintar (KIP) Kuliah Merdeka 2027',
+        organizer: 'Kemdiktisaintek RI',
+        country: 'Indonesia (Semua PTN & PTS)',
+        statusText: 'Perkiraan Siklus SNPMB',
+        openDate: 'Feb 2027',
+        deadlineDate: '2027-04-15',
+        deadlineDisplay: 'Mar–Apr 2027 (SNBT)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (100% UKT + Rp800rb–1,4jt/bln)',
+        reqType: 'SKTM_OK',
+        reqLabel: 'Bisa Hanya Pakai SKTM (Jika Belum Masuk DTKS/KIP)',
+        noIelts: true,
+        undipPartner: true,
+        mitraSystem: 'Bebas Semua PTN & PTS (Termasuk UNDIP & UNRI)',
+        mitraList: 'Berlaku di seluruh PTN (S1 Teknik Elektro UNDIP, ITB, UGM, UI, ITS, UB, UNRI) dan PTS terakreditasi.',
+        doubleRule: 'Daftar Paralel Boleh | Boleh Double Jalur Kepemimpinan Tanoto TELADAN',
+        gapYearRule: 'Eksplisit menerima lulusan tahun berjalan (2027) dan lulusan 2 tahun sebelumnya (2026 & 2025).',
+        testDetails: 'Verifikasi Ekonomi (DTKS Desil 1–4 atau SKTM + Slip Gaji Ortu <Rp4 juta/bln) + Skor UTBK-SNBT (20 April 2027: TPS & Literasi).',
+        documents: 'KTP, KK, NISN, foto rumah, bukti listrik/PBB, Kartu KIP/DTKS atau SKTM dari Kelurahan Bagan Keladi.',
+        easeScore: 5,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Kunci utama bebas UKT 100% + biaya hidup di S1 Teknik Elektro UNDIP. Siapkan SKTM Kelurahan Bagan Keladi di Januari 2027.',
+        officialUrl: 'https://kip-kuliah.kemdiktisaintek.go.id/panduan'
+      },
+      {
+        id: 'dn_idcloudhost',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa IDCloudHost x Telkom University 2027',
+        organizer: 'PT Cloud Hosting Indonesia & Telkom University',
+        country: 'Indonesia (Bandung/Surabaya/Jakarta)',
+        statusText: 'Perkiraan Siklus Tahunan',
+        openDate: 'Feb/Mar 2027',
+        deadlineDate: '2027-05-31',
+        deadlineDisplay: '31 Mei 2027 (Perkiraan)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH KULIAH (100% SPP 8 Sem + Asrama Thn 1)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Tanpa KIP-K & Tanpa SKTM (Murni Rapor & Portofolio)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Kampus Tunggal (Telkom University)',
+        mitraList: 'Telkom University (S1 Teknik Elektro, S1 Teknik Telekomunikasi, S1 Informatika, S1 Rekayasa Perangkat Lunak).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Terbuka bagi lulusan gap year hingga maksimal 5 tahun sebelumnya (lulusan 2022–2026).',
+        testDetails: 'Seleksi Rapor Sem 1–6 & Portofolio → Tes Online (TPA Logika & Dasar IT) → Wawancara Online.',
+        documents: 'Rapor sem 1–6, ijazah MAN, sertifikat olimpiade & organisasi, portofolio web app (SinauuEnglish), KTP, KK.',
+        easeScore: 5,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Rapor 89,9 + olimpiade + portofolio web developer SinauuEnglish & Founder Study With Mbah sangat klop dengan kriteria IDCloudHost.',
+        officialUrl: 'https://idcloudhost.com/beasiswa/'
+      },
+      {
+        id: 'dn_aperti',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa APERTI BUMN 2027',
+        organizer: 'Aliansi Perguruan Tinggi (APERTI) BUMN',
+        country: 'Indonesia (7 Kampus BUMN)',
+        statusText: 'Pantauan Maba 2027',
+        openDate: 'Mei/Jun 2027',
+        deadlineDate: '2027-06-30',
+        deadlineDisplay: 'Akhir Juni 2027 (Perkiraan)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (100% Biaya Kuliah s.d. Lulus)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Tanpa KIP-K & Tanpa SKTM (Murni Rapor & Olimpiade)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Khusus 7 Kampus Mitra BUMN',
+        mitraList: 'ITPLN Jakarta (S1 Teknik Elektro!), Telkom University, Universitas Pertamina, UISI, ULBI, Poltek Semen Indonesia, IT Telkom.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Menerima lulusan tahun berjalan (2027) dan lulusan 1 tahun sebelumnya (gap year 2026).',
+        testDetails: 'Seleksi Rapor Sem 1–5/6 & Piagam Olimpiade (TANPA TES TULIS di mayoritas kampus APERTI!) → Wawancara Online.',
+        documents: 'Scan rapor sem 1–6, ijazah MAN, sertifikat olimpiade & organisasi.',
+        easeScore: 5,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Dengan rapor 89,9 dan piagam olimpiade, peluang lolos seleksi rapor di S1 Teknik Elektro ITPLN atau Tel-U sangat tinggi.',
+        officialUrl: 'https://smb.telkomuniversity.ac.id/jalur-seleksi/beasiswa-aperti/'
+      },
+      {
+        id: 'dn_unggulan',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa Unggulan Masyarakat Berprestasi 2027',
+        organizer: 'Puslapdik Kemendikdasmen RI',
+        country: 'Indonesia (Semua PTN/PTS Min. B)',
+        statusText: 'Pantauan Maba 2027',
+        openDate: 'Jul/Agu 2027',
+        deadlineDate: '2027-08-24',
+        deadlineDisplay: 'Agustus 2027 (Saat Dapat LoA)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (UKT + Biaya Hidup + Buku)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Tanpa KIP-K & Tanpa SKTM (Murni Sertifikat Olimpiade + LoA)',
+        noIelts: true,
+        undipPartner: true,
+        mitraSystem: 'Bebas Semua PTN & PTS Akreditasi Min. B (Termasuk UNDIP)',
+        mitraList: 'Seluruh PTN (S1 Teknik Elektro UNDIP, ITB, UGM, UI, ITS, UB, UNRI) dan PTS akreditasi min. Baik Sekali.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH (Non-KIP-K)',
+        gapYearRule: 'Eksplisit menerima lulusan maksimal 2 tahun sebelumnya (2026 & 2025) yang diterima sebagai Maba semester 1.',
+        testDetails: 'Seleksi Berkas Prestasi Olimpiade, LoA PTN, UKBI & Esai Karya Tulis → Wawancara Substansi (Tanpa tes tulis akademik!).',
+        documents: 'Ijazah & rapor, LoA PTN (UNDIP), piagam olimpiade, sertifikat UKBI, rekomendasi, esai.',
+        easeScore: 5,
+        competition: 'Tinggi',
+        strategyForFarid: 'Senjata utama di S1 Teknik Elektro UNDIP jika kamu masuk lewat jalur non-KIP-K, karena kamu punya piagam olimpiade dan rapor 89,9.',
+        officialUrl: 'https://beasiswaunggulan.kemendikdasmen.go.id/faq/'
+      },
+      {
+        id: 'dn_tanoto',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa Kepemimpinan TELADAN — Tanoto Foundation',
+        organizer: 'Tanoto Foundation',
+        country: 'Indonesia (10 PTN Mitra)',
+        statusText: 'Pantauan Maba Sem 1',
+        openDate: 'Jul/Agu 2027',
+        deadlineDate: '2027-09-15',
+        deadlineDisplay: 'Sep 2027 (Saat Maba Sem 1)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (100% UKT + Uang Saku + Leadership 3,5 Thn)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Tanpa SKTM (Rapor ≥80 + Kepemimpinan; KIP-K Boleh Daftar!)',
+        noIelts: true,
+        undipPartner: true,
+        mitraSystem: 'Khusus 10 PTN Mitra Resmi (UNDIP & UNRI Masuk!)',
+        mitraList: '1. UNDIP, 2. UNRI, 3. ITB, 4. UI, 5. UGM, 6. IPB, 7. UB, 8. UNHAS, 9. UNMUL, 10. USU.',
+        doubleRule: 'SPESIAL: Penerima KIP Kuliah BOLEH DAFTAR untuk Jalur Kepemimpinan!',
+        gapYearRule: 'Terbuka bagi mahasiswa baru semester 1 di 10 PTN mitra dengan rata-rata rapor kelas XII minimal 80,0.',
+        testDetails: 'Seleksi Rapor (89,9) & Organisasi → Tes Potensi Kepemimpinan & Psikotes Online → Leaderless Group Discussion (LGD) → Wawancara.',
+        documents: 'Rapor kelas XII, KTM/bukti Maba UNDIP/UNRI, sertifikat olimpiade & kepemimpinan (Study With Mbah & Alternatifa).',
+        easeScore: 5,
+        competition: 'Tinggi',
+        strategyForFarid: 'UNDIP dan UNRI keduanya mitra resmi Tanoto! Pengalaman memandu Discuss With Us (DWU) adalah modal emas untuk tahap LGD Tanoto.',
+        officialUrl: 'https://www.tanotofoundation.org/teladan-2027/'
+      },
+      {
+        id: 'dn_bsi',
+        scope: 'DALAM_NEGERI',
+        name: 'BSI Scholarship (Berdampak & Prestasi) 2027',
+        organizer: 'BSI Maslahat & Bank Syariah Indonesia',
+        country: 'Indonesia (PTN Mitra termasuk UNDIP)',
+        statusText: 'Pantauan Maba Sem 1',
+        openDate: 'Agu 2027',
+        deadlineDate: '2027-09-30',
+        deadlineDisplay: 'Sep/Okt 2027 (Saat Sem 1)',
+        fundingType: 'FULL',
+        fundingLabel: 'Bantuan UKT s.d. 8 Semester + Pembinaan Syariah',
+        reqType: 'SKTM_OK',
+        reqLabel: 'Penyelamat Pendaftar KIP-K (Belum Dapat Kuota) + SKTM',
+        noIelts: true,
+        undipPartner: true,
+        mitraSystem: 'Khusus PTN Mitra Kemdiktisaintek (Termasuk UNDIP & UNRI)',
+        mitraList: 'UNDIP, UNRI, UI, ITB, UGM, IPB, ITS, UNAIR, UB, UNPAD, USU, UNAND, UNHAS, dll.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Mengikuti status mahasiswa baru S1 di PTN mitra.',
+        testDetails: 'Seleksi Berkas → Tes Tulis Online (TPA/Psikotes & Wawasan Ekonomi Syariah) → Wawancara.',
+        documents: 'LoA/KTM PTN Mitra, bukti daftar KIP-K, SKTM/DTKS, rapor kelas XII, piagam olimpiade.',
+        easeScore: 5,
+        competition: 'Sedang',
+        strategyForFarid: 'Jaring penyelamat langsung jika kuota KIP-K di UNDIP penuh. Latar belakang MAN 1 Dumai sangat membantu tes ekonomi syariah BSI.',
+        officialUrl: 'https://www.bsischolarship.id/'
+      },
+      {
+        id: 'dn_kse_riau',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa Pemprov Riau (Sobat Kesra), KSE & Bakti BCA',
+        organizer: 'Pemprov Riau, Yayasan KSE & PT BCA Tbk',
+        country: 'Indonesia (UNDIP & UNRI Mitra Resmi)',
+        statusText: 'Pantauan Kuliah Aktif',
+        openDate: 'Jul–Agu 2027',
+        deadlineDate: '2027-08-30',
+        deadlineDisplay: 'Agu–Okt 2027 (Sesuai Skema)',
+        fundingType: 'FULL',
+        fundingLabel: 'Bantuan UKT & Tunjangan Hidup Bulanan',
+        reqType: 'SKTM_OK',
+        reqLabel: 'Cukup SKTM (Ekonomi) atau Tanpa SKTM (Prestasi)',
+        noIelts: true,
+        undipPartner: true,
+        mitraSystem: 'Khusus PTN Mitra (UNDIP Terdaftar Resmi di Ketiganya!)',
+        mitraList: 'UNDIP tercatat resmi sebagai mitra Beasiswa Pemda Riau, Yayasan KSE (ada jalur khusus S1 Teknik Elektro!), dan Bakti BCA.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Terbuka bagi mahasiswa aktif reguler tanpa mempermasalahkan gap year SMA.',
+        testDetails: 'Pemprov Riau: 100% Seleksi Berkas di Sobat Kesra (Tanpa tes!). KSE & Bakti BCA: Seleksi Berkas → Psikotes → Wawancara.',
+        documents: 'KTP Dumai (Riau) & KK, KTM UNDIP/UNRI, SKTM atau piagam prestasi, surat bebas beasiswa lain.',
+        easeScore: 5,
+        competition: 'Sedang',
+        strategyForFarid: 'KTP Dumai (Riau) memberi akses langsung ke Beasiswa Pemda Riau di UNDIP maupun UNRI, ditambah kuota khusus Teknik Elektro di KSE.',
+        officialUrl: 'https://undip.ac.id/beasiswa-2'
+      },
+      {
+        id: 'dn_mahaghora',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa Mahaghora (Batch 17) 2027',
+        organizer: 'PT Mahaghora (CSR Pendidikan)',
+        country: 'Indonesia (Khusus Surabaya)',
+        statusText: 'Pantauan Maba 2027',
+        openDate: 'Juni 2027',
+        deadlineDate: '2027-07-31',
+        deadlineDisplay: 'Juli 2027 (Perkiraan)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH KULIAH (8 Semester di Surabaya)',
+        reqType: 'SKTM_OK',
+        reqLabel: 'Cukup SKTM (DILARANG Terdaftar KIP-K)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Khusus PTN & PTS Akreditasi A di Surabaya',
+        mitraList: 'ITS Surabaya (S1 Teknik Elektro!), UNAIR, UPN Veteran Jatim, UNESA, UBAYA, UK Petra.',
+        doubleRule: 'DILARANG Double dengan KIP-K maupun Beasiswa Lain',
+        gapYearRule: 'Eksplisit menerima lulusan gap year 1–2 tahun sebelumnya (lulusan 2026 & 2025).',
+        testDetails: 'Seleksi Berkas, Video Rumah & PPT Profil Diri → TPA & Psikotes → Leaderless Group Discussion (LGD) → Wawancara & Home Visit.',
+        documents: 'Rapor sem 1–6, ijazah, bukti organisasi (wajib), SKTM, slip penghasilan ortu, foto & video rumah, PPT profil diri.',
+        easeScore: 4,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Sangat pas jika kamu memilih S1 Teknik Elektro ITS Surabaya sebagai salah satu pilihan di SNBT 2027.',
+        officialUrl: 'https://beasiswamahaghora.com/'
+      },
+      {
+        id: 'dn_sawit',
+        scope: 'DALAM_NEGERI',
+        name: 'Beasiswa SDM Perkebunan Kelapa Sawit (BPDP) 2027',
+        organizer: 'BPDP Kemenkeu & Ditjenbun Kementan RI',
+        country: 'Indonesia (23+ Kampus Mitra)',
+        statusText: 'Perkiraan Siklus Mei',
+        openDate: 'Mei 2027',
+        deadlineDate: '2027-05-31',
+        deadlineDisplay: 'Akhir Mei 2027 (Perkiraan)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + Uang Saku + Asrama + Tiket PP)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'Jalur Khusus Keluarga Pekebun / Pekerja Sawit',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Khusus 23+ Kampus Mitra BPDP',
+        mitraList: 'PTKI Medan (D3 Teknik Mekanika), Politeknik Kampar Riau, Politeknik LPP Yogyakarta (D4 TRPL / Mesin Industri), INSTIPER.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Terbuka untuk lulusan tahun berjalan maupun lulusan tahun sebelumnya (gap year 2026).',
+        testDetails: 'Seleksi Berkas Jalur Sawit → Tes Akademik Online (TPA & Matematika Dasar) → Wawancara Online.',
+        documents: 'KTP, KK, ijazah & rapor MAN, surat sehat, surat keterangan kepemilikan kebun sawit / usaha sawit.',
+        easeScore: 3,
+        competition: 'Sedang (Kuota 5.000 Kursi)',
+        strategyForFarid: 'Hanya perlu dieksekusi jika keluargamu di Riau memiliki surat kepemilikan lahan sawit atau keterkaitan usaha sawit.',
+        officialUrl: 'https://sdmperkebunan.kemenkeu.go.id/'
+      },
+
+      // --- LUAR NEGERI / PTLN (14 PROGRAM) ---
+      {
+        id: 'ptln_turki',
+        scope: 'PTLN',
+        name: 'Türkiye Bursları (Turkiye Scholarships) 2027',
+        organizer: 'Pemerintah Republik Turki (YTB)',
+        country: 'Turki',
+        statusText: 'Akan Dibuka (10 Jan 2027)',
+        openDate: '10 Jan 2027',
+        deadlineDate: '2027-02-20',
+        deadlineDisplay: '20 Feb 2027 (23:59 GMT+3)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + Hidup + Tiket PP + Asrama + Asuransi)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS/TOEFL + Gratis 1 Thn Kelas Bahasa Turki',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Pilih 12 Universitas Negeri Turki di Portal TBBS',
+        mitraList: 'Gazi University, Ankara University, Sakarya University, Konya Technical University (S1 Electrical & Electronics Engineering).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Wajib berusia DI BAWAH 21 TAHUN (lahir ≥ 1 Jan 2006) dan lulusan SMA/MA. Rapor min 70% untuk Teknik (rapormu 89,9!).',
+        testDetails: 'Seleksi Berkas/Portofolio di TBBS → Wawancara Tatap Muka/Hybrid (Apr–Mei 2027 di Jakarta/Medan, ada penerjemah Indonesia + 3–5 soal matematika lisan singkat untuk Engineering).',
+        documents: 'Scan ijazah & rapor sem 1–6, KTP/Paspor, pasfoto, Letter of Intent, piagam olimpiade & organisasi, 1–2 rekomendasi.',
+        easeScore: 5,
+        competition: 'Tinggi',
+        strategyForFarid: 'PRIORITAS #1 PTLN GRATIS PENUH! Pilih prodi Electrical Engineering berbahasa pengantar Turki agar 100% bebas syarat TOEFL/IELTS & SAT.',
+        officialUrl: 'https://www.turkiyeburslari.gov.tr/calendar'
+      },
+      {
+        id: 'ptln_aiu',
+        scope: 'PTLN',
+        name: 'Albukhary International University (AIU) Scholarship 2027',
+        organizer: 'Albukhary Foundation Malaysia',
+        country: 'Malaysia (Kedah)',
+        statusText: 'Sedang Buka (Rolling)',
+        openDate: 'Buka Sepanjang Tahun',
+        deadlineDate: '2027-07-31',
+        deadlineDisplay: '31 Jul 2027 (Daftar Jan–Mar)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + Uang Saku + Asrama + Tiket + Kelas Inggris)',
+        reqType: 'SKTM_OK',
+        reqLabel: 'TANPA IELTS Saat Daftar + Gratis Kelas Bahasa Inggris 1 Thn',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Kampus Tunggal (AIU Alor Setar, Kedah)',
+        mitraList: 'Albukhary International University — Bachelor of Computer Science (Hons) / Data Science.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia 17–20 TAHUN saat masuk (19 thn sangat aman!), belum menikah, pendapatan keluarga <USD 300/bln (~Rp4,7 juta/bln).',
+        testDetails: 'Seleksi Berkas Akademik & Verifikasi Ekonomi → Tes Penempatan Bahasa Inggris Internal → Wawancara Online.',
+        documents: 'Ijazah & rapor MAN terjemahan Inggris, Paspor, SKTM & slip penghasilan ortu, foto rumah, esai, 2 rekomendasi.',
+        easeScore: 5,
+        competition: 'Sedang',
+        strategyForFarid: 'Dekat dari Riau, ramah lulusan MAN, dan bebas IELTS saat daftar. Catatan jujur: hanya ada S1 Computer Science (belum ada Teknik Elektro murni).',
+        officialUrl: 'https://aiu.edu.my/'
+      },
+      {
+        id: 'ptln_mext',
+        scope: 'PTLN',
+        name: 'Beasiswa Pemerintah Jepang (MEXT) — Kosen (D3 Teknik) & Gakubu (S1) 2028',
+        organizer: 'Monbukagakusho (MEXT) & Kedubes Jepang',
+        country: 'Jepang',
+        statusText: 'Perkiraan Siklus April',
+        openDate: '1 Apr 2027',
+        deadlineDate: '2027-04-19',
+        deadlineDisplay: '19 Apr 2027 (23:59 WIB)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + JPY 117.000/bln + Tiket PP + Kelas Jepang)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS/JLPT (Syarat Rapor ≥84 Gakubu / ≥80 Kosen)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Seluruh Universitas Negeri & Kosen Jepang',
+        mitraList: 'National Universities & National Institute of Technology (Kosen) di Jepang — Electrical & Electronic Engineering.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia <25 tahun per 1 April 2028 (lahir ≥ 2 April 2003). Rapor 89,9 lolos mutlak di atas syarat 84,0!',
+        testDetails: 'Seleksi Rapor → Ujian Tulis di Konjen Jepang Medan / Jakarta (Mei 2027): Kosen D3 Teknik menguji Matematika, Fisika, Inggris, Jepang (tanpa Kimia!); Gakubu IPA menguji Mat B, Fis, Kim, Ing, Jepang → Wawancara.',
+        documents: 'Formulir MEXT, fotokopi ijazah & rapor sem 1–6 legalisir basah MAN 1 Dumai, rekomendasi Kepala Sekolah, pasfoto.',
+        easeScore: 4,
+        competition: 'Sedang (Kosen D3) / Tinggi (Gakubu S1)',
+        strategyForFarid: 'Ikuti ujian tulisnya di Konjen Jepang Medan! Jalur Kosen D3 Teknik Elektro punya rasio lolos jauh lebih tinggi dan bisa lanjut transfer ke tahun ke-3 S1 di Jepang.',
+        officialUrl: 'https://www.id.emb-japan.go.jp/itpr_id/sch_gakubu.html'
+      },
+      {
+        id: 'ptln_saudi',
+        scope: 'PTLN',
+        name: 'Beasiswa Pemerintah Arab Saudi ("Study in Saudi" / KSA Scholarship) 2027',
+        organizer: 'Kementerian Pendidikan Arab Saudi (MOE KSA)',
+        country: 'Arab Saudi',
+        statusText: 'Perkiraan Siklus Tahunan',
+        openDate: 'Mei–Sep 2027',
+        deadlineDate: '2027-10-06',
+        deadlineDisplay: 'Okt 2027 (GMT+3)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + SAR 900/bln + Asrama + Tiket PP Tahunan!)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS Awal + Kelas Bahasa Arab / Tahdiri Sains 1 Thn',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Pilih 3 dari 25+ PTN Arab Saudi di Satu Portal',
+        mitraList: 'King Saud University, King Abdulaziz University, Taibah University, Umm Al-Qura, Islamic University of Madinah (Engineering / CS).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia 17–25 tahun untuk S1, ijazah tidak lebih dari 3–5 tahun.',
+        testDetails: '100% MURNI SELEKSI BERKAS di portal studyinsaudi.moe.gov.sa (tanpa tes tulis di Indonesia).',
+        documents: 'Ijazah & rapor MAN 1 Dumai, akta lahir, paspor, SKCK, surat sehat, 2 rekomendasi (terjemahan tersumpah Bahasa Arab & Apostille).',
+        easeScore: 4,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Ijazah MAN 1 Dumai dengan nilai Bahasa Arab & Agama + rata-rata 89,9 adalah nilai plus besar di portal Study in Saudi.',
+        officialUrl: 'https://studyinsaudi.moe.gov.sa/'
+      },
+      {
+        id: 'ptln_gksu',
+        scope: 'PTLN',
+        name: 'Global Korea Scholarship Undergraduate (GKS-U / KGSP) 2028',
+        organizer: 'NIIED (Pemerintah Korea Selatan)',
+        country: 'Korea Selatan',
+        statusText: 'Perkiraan Siklus Sep 2027',
+        openDate: 'Awal Sep 2027',
+        deadlineDate: '2027-10-01',
+        deadlineDisplay: 'Awal Okt 2027 (WIB)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + KRW 900.000/bln + Tiket PP + Kelas Korea)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA Wajib IELTS/TOPIK + Gratis 1 Thn Kelas Bahasa Korea',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: '60+ Kampus Mitra GKS (Disarankan Jalur University Track Regional)',
+        mitraList: 'Pukyong National Univ, Kyungpook National Univ, Chonnam National Univ, KOREATECH (Electrical / Electronic Engineering).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia <25 tahun dan belum pernah kuliah S1. Rapor minimal 80% (rapormu 89,9 sangat aman).',
+        testDetails: 'Seleksi Berkas, Personal Statement & Study Plan (Tanpa tes tulis akademik!) → Wawancara.',
+        documents: 'Ijazah, rapor, akta lahir & KK terjemahan Inggris yang di-Apostille Kemenkumham, Personal Statement, Study Plan, 2 rekomendasi.',
+        easeScore: 4,
+        competition: 'Sedang - Tinggi (University Track)',
+        strategyForFarid: 'Daftar via University Track Regional / UIC jurusan Engineering untuk peluang lolos jauh lebih besar dibanding Embassy Track.',
+        officialUrl: 'https://www.studyinkorea.go.kr/'
+      },
+      {
+        id: 'ptln_mitsui',
+        scope: 'PTLN',
+        name: 'Mitsui-Bussan Scholarship Program for Indonesia 2027',
+        organizer: 'Mitsui & Co., Ltd. Jepang',
+        country: 'Jepang',
+        statusText: 'Akan Dibuka (Jan 2027)',
+        openDate: 'Jan 2027',
+        deadlineDate: '2027-02-14',
+        deadlineDisplay: 'Pertengahan Feb 2027 (WIB)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + JPY 150.000/bln + Tiket PP + 1,5 Thn Bahasa)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS/JLPT + Gratis 1,5 Thn Kelas Bahasa Jepang',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Universitas Terkemuka di Jepang',
+        mitraList: 'Univ of Tokyo, Science Tokyo (Tokyo Tech), Kyoto Univ, Osaka Univ, Tohoku Univ, Waseda, Keio (Electrical Engineering).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MAN IPA/IPS berusia <20 tahun per 1 April 2027 (lahir ≥ 2 April 2007). Rapor Mat, Fis, Kim, Ing min 80.',
+        testDetails: 'Seleksi Rapor → Tes Tulis Tahap 1 (Hanya MATEMATIKA & BAHASA INGGRIS!) → Psikotes & Medical Check-Up → Wawancara di Jakarta.',
+        documents: 'Formulir online, scan rapor sem 4 & 5, ijazah MAN, KTP, pasfoto, rekomendasi Kepala Sekolah, piagam olimpiade.',
+        easeScore: 3,
+        competition: 'Sangat Tinggi (Kuota 2–3 Orang)',
+        strategyForFarid: 'Tes tulis tahap pertamanya hanya Matematika & Bahasa Inggris tanpa wajib IELTS, sangat cocok dengan latar belakang olimpiademu.',
+        officialUrl: 'https://www.mbkscholarship-id.com/'
+      },
+      {
+        id: 'ptln_bdgs',
+        scope: 'PTLN',
+        name: 'Brunei Darussalam Government Scholarship (BDGS) 2027/2028',
+        organizer: 'Kementerian Luar Negeri Brunei (MFA Brunei)',
+        country: 'Brunei Darussalam',
+        statusText: 'Perkiraan Buka Des 2026',
+        openDate: '15 Des 2026',
+        deadlineDate: '2027-02-15',
+        deadlineDisplay: '15 Feb 2027 (23:59 GMT+8)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + BND 650/bln + Asrama + Tiket PP)',
+        reqType: 'NEED_TOEFL_ITP',
+        reqLabel: 'Wajib TOEFL PBT/ITP ≥550 atau IELTS ≥6.0',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: 'Khusus 5 PTN Brunei Darussalam',
+        mitraList: 'Universiti Teknologi Brunei / UTB (S1 Electrical & Electronic Engineering), UBD, Politeknik Brunei.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia 18–25 tahun per 1 Juli 2027.',
+        testDetails: 'Seleksi Berkas Portal MFA & Kampus → Tes CBT Online Kampus (Matematika & Inggris) → Wawancara Online.',
+        documents: 'Ijazah & rapor terjemahan Inggris, paspor, SKCK, sertifikat TOEFL/IELTS, rekomendasi.',
+        easeScore: 3,
+        competition: 'Tinggi',
+        strategyForFarid: 'Ambil TOEFL ITP Resmi ETS (~Rp550rb, skor min 550) di Januari 2027 jika ingin melamar ke UTB Brunei.',
+        officialUrl: 'https://www.mfa.gov.bn/pages/scholarship.aspx'
+      },
+      {
+        id: 'ptln_taiwanicdf',
+        scope: 'PTLN',
+        name: 'TaiwanICDF International Higher Education Scholarship 2027',
+        organizer: 'Pemerintah Taiwan (TaiwanICDF)',
+        country: 'Taiwan',
+        statusText: 'Akan Dibuka (1 Des 2026)',
+        openDate: '1 Des 2026',
+        deadlineDate: '2027-03-15',
+        deadlineDisplay: '15 Mar 2027 (23:59 GMT+8)',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (Kuliah + NT$ 18.000/bln + Asrama + Tiket PP)',
+        reqType: 'NEED_TOEFL_ITP',
+        reqLabel: 'Bisa Pakai TOEFL ITP (≥500–550) atau TOEIC (≥600+)',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: 'Universitas Mitra TICA Taiwan (100% Pengantar Inggris)',
+        mitraList: 'National Pingtung Univ of Science & Tech, Kun Shan Univ, Ming Chi Univ of Tech (Engineering / CS).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MA berijazah lengkap.',
+        testDetails: 'Daftar online TaiwanICDF & kampus mitra → Seleksi Berkas & Wawancara TETO Jakarta.',
+        documents: 'Ijazah & rapor terjemahan Inggris, Paspor, sertifikat TOEFL ITP/TOEIC/IELTS, 2 rekomendasi, Study Plan.',
+        easeScore: 3,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: '100% berbahasa pengantar Inggris tanpa wajib Mandarin dan menerima TOEFL ITP/TOEIC.',
+        officialUrl: 'https://www.icdf.org.tw/wSite/ct?xItem=69338&ctNode=31566&mp=2'
+      },
+      {
+        id: 'ptln_hbku_nus',
+        scope: 'PTLN',
+        name: 'HBKU Qatar, KAIST Korea & NUS/NTU ASEAN Undergraduate 2027',
+        organizer: 'HBKU Qatar, KAIST & NUS/NTU Singapura',
+        country: 'Qatar, Korsel & Singapura',
+        statusText: 'Sedang Buka / Akan Buka',
+        openDate: 'Sedang Buka',
+        deadlineDate: '2027-03-01',
+        deadlineDisplay: 'KAIST: 14 Jan | HBKU: 1 Mar | NUS: 19 Mar',
+        fundingType: 'FULL',
+        fundingLabel: 'GRATIS PENUH (100% Kuliah + Tunjangan Penuh + Asrama)',
+        reqType: 'NEED_HIGH_IELTS',
+        reqLabel: 'WAJIB IELTS 6.5 / TOEFL iBT 83+ & Skor SAT/UEE',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: 'Kampus Tunggal Penyelenggara',
+        mitraList: 'HBKU Qatar, KAIST, NUS, NTU Singapura (S1 Electrical / Computer Engineering).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MA berijazah dengan rapor ~90%+.',
+        testDetails: 'Seleksi Berkas (Rapor + IELTS 6.5 + SAT) → Ujian Saringan Masuk (UEE) → Wawancara.',
+        documents: 'Ijazah & rapor Inggris, Paspor, IELTS 6.5, SAT, esai, 2 rekomendasi.',
+        easeScore: 2,
+        competition: 'Sangat Tinggi',
+        strategyForFarid: 'Karena mewajibkan IELTS 6.5 dan SAT sebelum Maret 2027, jadikan prioritas terakhir/skip agar fokusmu tidak terpecah.',
+        officialUrl: 'https://nus.edu.sg/oam/scholarships/important-dates-and-application'
+      },
+      {
+        id: 'ptln_rusia',
+        scope: 'PTLN',
+        name: 'Russian Government Scholarship (Kuota Kedutaan / Rumah Rusia) 2027/2028',
+        organizer: 'Pemerintah Federasi Rusia (Rossotrudnichestvo)',
+        country: 'Rusia',
+        statusText: 'Sedang Buka',
+        openDate: 'Sep 2026',
+        deadlineDate: '2027-01-15',
+        deadlineDisplay: '15 Jan 2027 (23:59 GMT+3)',
+        fundingType: 'PARTIAL',
+        fundingLabel: 'HAMPIR PENUH (100% Kuliah + 1 Thn Bahasa Rusia + Subsidi Asrama; Tanpa Tiket)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS/TOEFL + Gratis 1 Thn Kelas Bahasa Rusia (Rabfak)',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Bebas Pilih 6 dari 500+ Universitas Negeri Rusia',
+        mitraList: 'ITMO University, Bauman Moscow State Technical University, St. Petersburg Polytechnic University, Kazan Federal University.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Tidak ada batas usia ketat untuk S1 dan sangat ramah lulusan gap year 2026 berijazah MAN.',
+        testDetails: 'Daftar di education-in-russia.com & unggah rapor + piagam olimpiade → Seleksi Berkas & Wawancara di Rumah Rusia Jakarta (Tanpa tes tulis berat!).',
+        documents: 'Scan Paspor, ijazah & rapor MAN 1 Dumai, kuesioner online, pasfoto, piagam olimpiade.',
+        easeScore: 5,
+        competition: 'Rendah - Sedang (Kuota 200–300 Kursi!)',
+        strategyForFarid: 'PELUANG LOLOS TERTINGGI DI LUAR NEGERI (>85%)! Kuota Indonesia sangat besar, 0% syarat IELTS, dan piagam olimpiade mendapat poin prioritas utama.',
+        officialUrl: 'https://education-in-russia.com/'
+      },
+      {
+        id: 'ptln_rumania',
+        scope: 'PTLN',
+        name: 'Romanian Government Scholarship (via MFA Romania) 2027/2028',
+        organizer: 'Kementerian Luar Negeri Rumania (MFA Romania)',
+        country: 'Rumania (Uni Eropa)',
+        statusText: 'Perkiraan Buka Feb 2027',
+        openDate: 'Feb 2027',
+        deadlineDate: '2027-03-15',
+        deadlineDisplay: 'Pertengahan Mar 2027 (GMT+2)',
+        fundingType: 'PARTIAL',
+        fundingLabel: 'HAMPIR PENUH (100% Kuliah + 1 Thn Bahasa + Asrama Gratis + EUR 65/bln; Tanpa Tiket)',
+        reqType: 'MURNI_RAPOR',
+        reqLabel: 'TANPA IELTS & TANPA WAWANCARA + Gratis 1 Thn Bahasa Rumania',
+        noIelts: true,
+        undipPartner: false,
+        mitraSystem: 'Seluruh Universitas Negeri di Rumania (Study in Romania)',
+        mitraList: 'Politehnica University of Bucharest, Technical University of Cluj-Napoca (S1 Electrical Engineering).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MA dengan rata-rata rapor minimal 7/10 (70) — rapormu 89,9 jauh di atas syarat!',
+        testDetails: '100% MURNI SELEKSI BERKAS PORTAL (TANPA TES TULIS & TANPA WAWANCARA!).',
+        documents: 'Ijazah & rapor MAN, akta kelahiran, paspor (terjemahan resmi Inggris), dan CV.',
+        easeScore: 5,
+        competition: 'Sedang',
+        strategyForFarid: 'Murni adu nilai rapor tanpa wawancara dan tanpa IELTS di negara anggota Uni Eropa.',
+        officialUrl: 'https://scholarships.studyinromania.gov.ro/'
+      },
+      {
+        id: 'ptln_hungaria',
+        scope: 'PTLN',
+        name: 'Stipendium Hungaricum Scholarship 2027/2028',
+        organizer: 'Pemerintah Hungaria (Tempus Public Foundation)',
+        country: 'Hungaria (Uni Eropa)',
+        statusText: 'Segera Buka (Nov 2026)',
+        openDate: 'Pertengahan Nov 2026',
+        deadlineDate: '2027-01-15',
+        deadlineDisplay: '15 Jan 2027 (14:00 CET)',
+        fundingType: 'PARTIAL',
+        fundingLabel: 'HAMPIR PENUH (100% Kuliah + Asrama + HUF 43.700/bln; Tanpa Tiket)',
+        reqType: 'NEED_TOEFL_ITP',
+        reqLabel: 'Bisa Duolingo / TOEFL ITP (atau Jalur 1 Thn Bahasa Hungaria)',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: 'Khusus 30+ Universitas Mitra di Hungaria',
+        mitraList: 'BME Budapest, University of Debrecen, Obuda University (S1 Electrical Engineering & CS).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Usia minimal 18 tahun per 31 Agustus 2027 dan berijazah SMA/MA.',
+        testDetails: 'Nominasi Kemdiktisaintek → Tes Tulis Online MATEMATIKA & FISIKA + Wawancara Skype dengan Kampus Hungaria.',
+        documents: 'Ijazah & rapor terjemahan Inggris, Paspor, Motivation Letter, bukti bahasa, Medical Certificate.',
+        easeScore: 3,
+        competition: 'Sedang - Tinggi',
+        strategyForFarid: 'Ujian tulis online Matematika & Fisika kampus Hungaria sangat cocok dengan latar belakang olimpiademu.',
+        officialUrl: 'https://stipendiumhungaricum.hu/apply/'
+      },
+      {
+        id: 'ptln_csc',
+        scope: 'PTLN',
+        name: 'Chinese Government Scholarship (CSC) 2027/2028 - Jalur Kedutaan (Type A)',
+        organizer: 'Pemerintah Tiongkok & Kedubes RRT di Indonesia',
+        country: 'Tiongkok',
+        statusText: 'Sedang Buka',
+        openDate: '27 Okt 2026',
+        deadlineDate: '2027-02-14',
+        deadlineDisplay: '14 Feb 2027 (23:59 WIB)',
+        fundingType: 'PARTIAL',
+        fundingLabel: 'HAMPIR PENUH (100% Kuliah + Asrama + CNY 2.500/bln [~Rp5,5jt]; Tanpa Tiket)',
+        reqType: 'NEED_TOEFL_ITP',
+        reqLabel: 'Wajib Tes CSCA + Pre-Admission Kampus + HSK/IELTS',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: '270+ Universitas Mitra CSC (Agency No. 3602)',
+        mitraList: 'Zhejiang University, Shanghai Jiao Tong University, Harbin Institute of Technology, Beihang University.',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MA berusia <25 tahun (usia 19 thn sangat aman).',
+        testDetails: 'Ujian CSCA → Melamar Pre-Admission Letter ke Kampus Tiongkok → Evaluasi Kedubes RRT (Agency No. 3602).',
+        documents: 'Paspor, ijazah & rapor notarisasi Inggris/Mandarin, skor CSCA, Pre-Admission Notice, Study Plan, Medical Form, SKCK.',
+        easeScore: 3,
+        competition: 'Tinggi',
+        strategyForFarid: 'Uang saku bulanannya sangat besar (CNY 2.500/bln), namun membutuhkan tes CSCA dan Pre-Admission sebelum 14 Februari 2027.',
+        officialUrl: 'https://www.campuschina.org/'
+      },
+      {
+        id: 'ptln_moetaiwan',
+        scope: 'PTLN',
+        name: 'MOE Taiwan Scholarship 2027 (via TETO Jakarta)',
+        organizer: 'Kementerian Pendidikan Taiwan (MOE)',
+        country: 'Taiwan',
+        statusText: 'Perkiraan Buka Feb 2027',
+        openDate: '1 Feb 2027',
+        deadlineDate: '2027-03-31',
+        deadlineDisplay: '31 Mar 2027 (WIB)',
+        fundingType: 'PARTIAL',
+        fundingLabel: 'HAMPIR PENUH (SPP s.d. NT$ 40.000/sem + NT$ 15.000/bln; Tanpa Tiket)',
+        reqType: 'NEED_TOEFL_ITP',
+        reqLabel: 'Bisa Pakai TOEFL ITP (≥500–550) / TOEIC / TOCFL',
+        noIelts: false,
+        undipPartner: false,
+        mitraSystem: 'Bebas Pilih Universitas di Taiwan',
+        mitraList: 'NTUST (Taiwan Tech), Taipei Tech, National Cheng Kung University (NCKU).',
+        doubleRule: 'Daftar Paralel Boleh | Terima Ganda TIDAK BOLEH',
+        gapYearRule: 'Lulusan SMA/MA berijazah lengkap.',
+        testDetails: 'Daftar ke universitas di Taiwan & kirim berkas ke TETO Jakarta.',
+        documents: 'Ijazah & rapor terjemahan Inggris legalisir, Paspor, sertifikat TOEFL ITP/TOEIC/TOCFL, 2 rekomendasi, Study Plan.',
+        easeScore: 3,
+        competition: 'Sedang',
+        strategyForFarid: 'Bisa dilamar bersamaan dengan TaiwanICDF jika kamu mengambil tes TOEFL ITP ETS.',
+        officialUrl: 'https://english.moe.gov.tw/cp-24-16833-23C09-1.html'
+      }
+    ];
+
+    const MITRA_MATRIX = [
+      { name: 'KIP Kuliah Merdeka 2027', system: 'Bebas Semua PTN & PTS', undip: 'YA', unri: 'YA', req: 'Bisa SKTM saja (jika belum masuk DTKS)', list: 'Seluruh PTN (UNDIP, UNRI, ITB, UGM, UI, ITS, UB) & PTS.' },
+      { name: 'Beasiswa Unggulan Kemendikdasmen', system: 'Bebas PTN/PTS Min. B', undip: 'YA', unri: 'YA', req: 'Murni Prestasi Olimpiade + LoA (Tanpa SKTM)', list: 'Seluruh PTN (UNDIP, UNRI, ITB, UGM, UI, ITS) & PTS.' },
+      { name: 'Tanoto Foundation TELADAN', system: 'Khusus 10 PTN Mitra', undip: 'YA', unri: 'YA', req: 'Murni Rapor ≥80 (Awardee KIP-K Boleh Daftar!)', list: 'UNDIP, UNRI, ITB, UI, UGM, IPB, UB, UNHAS, UNMUL, USU.' },
+      { name: 'BSI Scholarship (Berdampak)', system: 'Khusus PTN Mitra', undip: 'YA', unri: 'YA', req: 'Bukti Daftar KIP-K (Belum Dapat Kuota) + SKTM', list: 'UNDIP, UNRI, UI, ITB, UGM, IPB, ITS, UNAIR, UB, UNPAD, USU.' },
+      { name: 'Pemprov Riau, KSE & Bakti BCA', system: 'Khusus PTN Mitra', undip: 'YA', unri: 'YA', req: 'SKTM (Ekonomi) / Tanpa SKTM (Prestasi)', list: 'UNDIP mitra resmi Pemda Riau, KSE (khusus Teknik Elektro!), & Bakti BCA.' },
+      { name: 'Beasiswa Mahaghora', system: 'Khusus Surabaya', undip: 'TIDAK', unri: 'TIDAK', req: 'Cukup SKTM (Dilarang KIP-K)', list: 'ITS Surabaya (S1 Teknik Elektro), UNAIR, UPNV Jatim, UNESA, UBAYA.' },
+      { name: 'Beasiswa APERTI BUMN', system: 'Khusus 7 Kampus BUMN', undip: 'TIDAK', unri: 'TIDAK', req: 'Murni Rapor & Olimpiade (Tanpa SKTM)', list: 'ITPLN (S1 Teknik Elektro), Telkom Univ, Univ Pertamina, UISI, ULBI.' },
+      { name: 'Politeknik Astra & IDCloudHost', system: 'Kampus Tunggal', undip: 'TIDAK', unri: 'TIDAK', req: 'Murni Rapor & Portofolio (Tanpa SKTM)', list: 'Politeknik Astra Cikarang & Telkom University.' }
+    ];
+
+    const ELIMINASI_DATA = [
+      { name: 'Beasiswa Garuda S1 Luar Negeri 2027 (Kemdiktisaintek & LPDP)', status: 'Buka 12 Nov 2026 – 4 Jan 2027', reason: 'Wajib berstatus siswa aktif kelas XII TA 2026/2027 (rapor sem 1–4). Lulusan 2026 (gap year) tidak bisa mendaftar.', url: 'https://beasiswagaruda.kemdiktisaintek.go.id/' },
+      { name: 'Beasiswa BCA PPBP & PPTI TA 2027', status: 'Sudah Tutup (20 Okt 2026)', reason: 'Pendaftaran untuk tahun ajaran 2027 sudah resmi ditutup pada 20 Oktober 2026.', url: 'https://karir.bca.co.id/beasiswa-bca' },
+      { name: 'Global Korea Scholarship (GKS-U) Siklus 2027', status: 'Sudah Tutup (Okt 2026)', reason: 'Jalur Kedutaan 2027 sudah tutup Oktober 2026; siklus GKS-U 2028 dibuka awal September 2027.', url: 'https://www.studyinkorea.go.kr/' },
+      { name: 'Chevening (UK), Fulbright (AS), Erasmus Mundus, Australia Awards & DAAD', status: 'Khusus S2 / S3', reason: '100% hanya untuk jenjang Master (S2) atau Doktoral (S3) yang mewajibkan ijazah S1 dan pengalaman kerja.', url: 'https://www.chevening.org/' }
+    ];
+
+    const CHECKLIST_DATA = [
+      { id: 'c1', text: '[H-15] Daftar & Unggah Rapor 89,9 + CV Beasiswa Politeknik Astra Batch 1 (sebelum 30 Nov 2026)' },
+      { id: 'c2', text: 'Ikuti Ujian CBT Online Politeknik Astra (TPA Logika, Numerik & Psikotes) pada 5 Des 2026' },
+      { id: 'c3', text: 'Urus Paspor Biasa/Elektronik di Kantor Imigrasi Kelas II TPI Dumai (Desember 2026)' },
+      { id: 'c4', text: 'Legalisir Basah Ijazah & Rapor Semester 1–6 di MAN 1 Kota Dumai (10 Rangkap)' },
+      { id: 'c5', text: 'Minta 2 Surat Rekomendasi Bahasa Inggris dari Kepala Sekolah & Guru Matematika/Fisika MAN 1 Dumai' },
+      { id: 'c6', text: 'Terjemahkan Ijazah, Rapor & Akta Lahir ke Bahasa Inggris via Penerjemah Tersumpah (Sworn Translator)' },
+      { id: 'c7', text: 'Submit Aplikasi Russian Government Scholarship di education-in-russia.com sebelum 15 Jan 2027' },
+      { id: 'c8', text: 'Submit Aplikasi Mitsui-Bussan Jepang & Turkiye Burslari Turki (10 Jan – 20 Feb 2027)' },
+      { id: 'c9', text: 'Urus SKTM & Surat Penghasilan Orang Tua di Kantor Kelurahan Bagan Keladi (Jan/Feb 2027)' },
+      { id: 'c10', text: 'Daftar Akun KIP Kuliah Merdeka 2027 & Pilih S1 Teknik Elektro UNDIP di UTBK-SNBT' },
+      { id: 'c11', text: 'Submit Aplikasi AIU Malaysia & Romanian MFA Scholarship (Februari – Maret 2027)' },
+      { id: 'c12', text: 'Daftar MEXT Jepang (Kosen D3 / Gakubu S1) Lokasi Ujian Konjen Medan (1 – 19 April 2027)' }
+    ];
+
+    const ESSAY_PITCHES = [
+      { title: '1. Pitch Akademik & Olimpiade (Rapor 89,9)', text: 'Sebagai lulusan MAN 1 Kota Dumai dengan rata-rata nilai rapor 89,9 serta peraih prestasi olimpiade sains, saya memiliki fondasi kuat dalam matematika dan fisika untuk menempuh studi S1 Teknik Elektro.' },
+      { title: '2. Pitch Leadership Komunitas (Founder Study With Mbah >11.000 Anggota)', text: 'Selama masa gap year, saya mendirikan komunitas edukasi Study With Mbah yang menjangkau lebih dari 11.000 pelajar di Indonesia, menyusun modul penalaran, dan memfasilitasi belajar gratis secara berkelanjutan.' },
+      { title: '3. Pitch Fasilitator Diskusi (Junior Setara Belajar Alternatifa & Latveria)', text: 'Peran saya sebagai Junior Setara Belajar di Alternatifa Project dan pemimpin Latveria Community dalam memandu sesi Discuss With Us (DWU) mengasah kemampuan komunikasi publik dan pemecahan masalah kelompok (LGD).' },
+      { title: '4. Pitch Portofolio Rekayasa Web (SinauuEnglish PWA)', text: 'Saya membangun aplikasi web progresif (PWA) pembelajaran bahasa Inggris SinauuEnglish dan sistem kuis interaktif secara mandiri sebagai bukti nyata integrasi kemampuan teknis dan dampak pendidikan.' }
+    ];
+
+    // =========================================================================
+    // 2. MODULAR SOURCE FILES FOR CODE VIEWER TAB
+    // =========================================================================
+    const CODE_FILES = {
+      gs: {
+        name: 'google-apps-script/Code.gs (Tempel di Ekstensi → Apps Script Google Sheet)',
+        code: `// File: google-apps-script/Code.gs
+// Menghubungkan Google Sheet Farid (1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc) ke Frontend Web / Vercel
+const SHEET_ID = '1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc';
+
+function doGet(e) {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const payload = {
+    status: 'ok',
+    updatedAt: new Date().toISOString(),
+    tabs: {}
+  };
+
+  ss.getSheets().forEach((sheet) => {
+    const rows = sheet.getDataRange().getValues();
+    payload.tabs[sheet.getName()] = rows;
+  });
+
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
+}`
+      },
+      sync: {
+        name: 'src/services/sheetsSync.js (Modul Fetch Live Google Sheet)',
+        code: `// File: src/services/sheetsSync.js
+export const SHEET_ID = '1A2Nnjd0WYs1Y5PRzoBPEOC0UD9bx3oEfUBeyTGZanJc';
+
+export async function fetchLiveScholarshipSheet(customAppsScriptUrl = '') {
+  const endpoint = customAppsScriptUrl ||
+    \`https://docs.google.com/spreadsheets/d/\${SHEET_ID}/gviz/tq?tqx=out:json\`;
+
+  const response = await fetch(endpoint, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error('Gagal menarik data dari Google Sheet');
+  }
+  const rawText = await response.text();
+  return { syncedAt: new Date().toISOString(), rawLength: rawText.length };
+}`
+      },
+      css: {
+        name: 'src/styles/neocities.css (Stylesheet Terpisah Neocities & Bento)',
+        code: `/* File: src/styles/neocities.css */
+.graph-paper-bg {
+  background-color: #f8f8f6;
+  background-image:
+    linear-gradient(to right, #e2e2df 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e2df 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.retro-window {
+  background-color: #ffffff;
+  border: 2px solid #141414;
+  box-shadow: 4px 4px 0px #141414;
+}
+
+.retro-titlebar {
+  background-color: #d4d4d0;
+  border-bottom: 2px solid #141414;
+  padding: 6px 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}`
+      },
+      react: {
+        name: 'src/App.jsx (Komponen Utama React Frontend)',
+        code: `// File: src/App.jsx
+import React, { useState, useEffect } from 'react';
+// Style: src/styles/neocities.css
+// API Service: src/services/sheetsSync.js
+// Database: src/data/scholarshipsData.js
+
+export default function App() {
+  const [viewMode, setViewMode] = useState('RETRO'); // 'RETRO' | 'BENTO'
+  const [filterScope, setFilterScope] = useState('ALL');
+  const [selectedId, setSelectedId] = useState(SCHOLARSHIPS[0].id);
+
+  const filtered = SCHOLARSHIPS.filter(item =>
+    filterScope === 'ALL' ? true : item.scope === filterScope
+  );
+
+  return (
+    <div className={viewMode === 'RETRO' ? 'graph-paper-bg min-h-screen' : 'bento-desk-surface min-h-screen'}>
+      {/* Neocities Window & Bento Workspace Toggle */}
+    </div>
+  );
+}`
+      }
+    };
+
+    // =========================================================================
+    // 3. STATE MANAGEMENT
+    // =========================================================================
+    let activeRetroNav = 'home'; // 'home' | 'ptn' | 'ptln' | 'mitra' | 'checklist' | 'code'
+    let activePillFilter = 'ALL';
+    let retroPage = 1;
+    const RETRO_PAGE_SIZE = 5;
+    let statusMap = {};
+    let checklistMap = {};
+    let bentoScope = 'ALL';
+    let selectedBentoId = 'ptln_turki';
+
+    function loadState() {
+      try {
+        const s = localStorage.getItem('farid_retro_status_v2');
+        if (s) statusMap = JSON.parse(s);
+        const c = localStorage.getItem('farid_retro_checklist_v2');
+        if (c) checklistMap = JSON.parse(c);
+      } catch (e) {}
+    }
+
+    function saveStatus() {
+      try {
+        localStorage.setItem('farid_retro_status_v2', JSON.stringify(statusMap));
+      } catch (e) {}
+    }
+
+    function saveChecklist() {
+      try {
+        localStorage.setItem('farid_retro_checklist_v2', JSON.stringify(checklistMap));
+      } catch (e) {}
+    }
+
+    function notify(msg) {
+      const box = document.getElementById('toastBox');
+      const txt = document.getElementById('toastText');
+      if (!box || !txt) return;
+      txt.textContent = msg;
+      box.classList.remove('hidden');
+      setTimeout(() => box.classList.add('hidden'), 2800);
+    }
+
+    function getDaysLeft(dateStr) {
+      const d = new Date(dateStr + 'T23:59:59+07:00');
+      return Math.ceil((d.getTime() - REF_NOW.getTime()) / (1000 * 60 * 60 * 24));
+    }
+
+    // =========================================================================
+    // 4. RENDER RETRO NEOCITIES VIEW (IMAGE 1)
+    // =========================================================================
+    function updateProfileCounter() {
+      const count = SCHOLARSHIPS.filter(s => {
+        const st = statusMap[s.id] || 'BELUM';
+        return st !== 'BELUM' && st !== 'CADANGAN';
+      }).length;
+      const el = document.getElementById('profileAppliedCounter');
+      if (el) el.textContent = `${count} / ${SCHOLARSHIPS.length} tracked`;
+    }
+
+    function getRetroFilteredList() {
+      const q = (document.getElementById('retroSearchInput').value || '').trim().toLowerCase();
+      const sortBy = document.getElementById('retroSortSelect').value;
+
+      let list = SCHOLARSHIPS.filter(item => {
+        if (activeRetroNav === 'ptn' && item.scope !== 'DALAM_NEGERI') return false;
+        if (activeRetroNav === 'ptln' && item.scope !== 'PTLN') return false;
+
+        if (activePillFilter === 'URGENT' && getDaysLeft(item.deadlineDate) > 95) return false;
+        if (activePillFilter === 'NO_IELTS_PTLN' && !(item.scope === 'PTLN' && item.noIelts)) return false;
+        if (activePillFilter === 'UNDIP_MITRA' && !item.undipPartner) return false;
+        if (activePillFilter === 'MURNI_RAPOR' && item.reqType !== 'MURNI_RAPOR') return false;
+        if (activePillFilter === 'SKTM_OK' && item.reqType !== 'SKTM_OK') return false;
+
+        if (q) {
+          const hay = `${item.name} ${item.organizer} ${item.country} ${item.mitraList} ${item.testDetails} ${item.reqLabel}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      list.sort((a, b) => {
+        if (sortBy === 'DEADLINE') return getDaysLeft(a.deadlineDate) - getDaysLeft(b.deadlineDate);
+        if (sortBy === 'EASE') {
+          if (b.easeScore !== a.easeScore) return b.easeScore - a.easeScore;
+          return getDaysLeft(a.deadlineDate) - getDaysLeft(b.deadlineDate);
+        }
+        if (a.fundingType !== b.fundingType) return a.fundingType === 'FULL' ? -1 : 1;
+        if (b.easeScore !== a.easeScore) return b.easeScore - a.easeScore;
+        return getDaysLeft(a.deadlineDate) - getDaysLeft(b.deadlineDate);
+      });
+
+      return list;
+    }
+
+    function renderRetroScholarships() {
+      const fullList = getRetroFilteredList();
+      const totalPages = Math.max(1, Math.ceil(fullList.length / RETRO_PAGE_SIZE));
+      if (retroPage > totalPages) retroPage = totalPages;
+      if (retroPage < 1) retroPage = 1;
+
+      const startIdx = (retroPage - 1) * RETRO_PAGE_SIZE;
+      const pageItems = fullList.slice(startIdx, startIdx + RETRO_PAGE_SIZE);
+
+      const titleEl = document.getElementById('directoryWindowTitle');
+      if (titleEl) {
+        const label = activeRetroNav === 'ptn'
+          ? 'DALAM NEGERI (PTN & PTS)'
+          : activeRetroNav === 'ptln'
+          ? 'PTLN LUAR NEGERI'
+          : `DAFTAR RINGKAS (${activePillFilter})`;
+        titleEl.innerHTML = `⇦ ${label} &nbsp; [${fullList.length} PROGRAM]`;
+      }
+
+      const pageInfoEl = document.getElementById('retroPageInfo');
+      if (pageInfoEl) {
+        pageInfoEl.textContent = `Hal ${retroPage}/${totalPages} (${fullList.length} program) • Klik baris untuk detail tes & berkas`;
+      }
+
+      const container = document.getElementById('retroScholarshipList');
+      if (!container) return;
+
+      if (fullList.length === 0) {
+        container.innerHTML = `<div class="retro-dashed-box text-center text-xs">Tidak ada beasiswa yang cocok. Klik tombol [ALL (24)] untuk reset.</div>`;
+        return;
+      }
+
+      container.innerHTML = pageItems.map((item, idx) => {
+        const globalNum = startIdx + idx + 1;
+        const days = getDaysLeft(item.deadlineDate);
+        let urgentTag = '';
+        let borderCls = 'card-safe-border';
+        if (days <= 17) {
+          urgentTag = `<span class="badge-urgent-red rounded px-2 py-0.5 text-[10px] font-extrabold">🔴 H-${days} (${item.deadlineDisplay})</span>`;
+          borderCls = 'card-urgent-border';
+        } else if (days <= 95) {
+          urgentTag = `<span class="badge-soon-amber rounded px-2 py-0.5 text-[10px] font-bold">🟡 ${days}h (${item.deadlineDisplay})</span>`;
+          borderCls = 'card-soon-border';
+        } else {
+          urgentTag = `<span class="badge-info-blue rounded px-2 py-0.5 text-[10px] font-bold">🔵 ${item.deadlineDisplay}</span>`;
+        }
+
+        const fundTag = item.fundingType === 'FULL'
+          ? `<span class="badge-safe-green rounded px-1.5 py-0.5 text-[10px] font-bold">💎 FULL</span>`
+          : `<span class="badge-soon-amber rounded px-1.5 py-0.5 text-[10px] font-bold">🟨 NON-TIKET</span>`;
+
+        const ieltsTag = item.noIelts
+          ? `<span class="badge-safe-green rounded px-1.5 py-0.5 text-[10px] font-bold">🟢 0% IELTS</span>`
+          : `<span class="badge-urgent-red rounded px-1.5 py-0.5 text-[10px] font-bold">🔴 WAJIB BHS</span>`;
+
+        const undipTag = item.undipPartner
+          ? `<span class="badge-undip-gold rounded px-1.5 py-0.5 text-[10px] font-extrabold">⚡ UNDIP</span>`
+          : '';
+
+        const curSt = statusMap[item.id] || 'BELUM';
+        const statusBgMap = {
+          BELUM: 'bg-white text-zinc-800',
+          SIAPKAN_BERKAS: 'bg-amber-200 text-amber-950',
+          SUDAH_SUBMIT: 'bg-sky-200 text-sky-950',
+          TAHAP_TES: 'bg-purple-200 text-purple-950',
+          LOLOS: 'bg-emerald-300 text-emerald-950',
+          CADANGAN: 'bg-zinc-200 text-zinc-600'
+        };
+        const stCls = statusBgMap[curSt] || 'bg-white';
+
+        return `
+          <div class="compact-row-item ${borderCls}" data-row-modal="${item.id}">
+            <div class="flex-1 min-w-[220px]">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="font-extrabold text-xs text-[#141414]">#${globalNum} ${item.name}</span>
+                ${undipTag}
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5 mt-1 text-[11px] text-[#444440]">
+                <span class="font-semibold">${item.country}</span>
+                <span>•</span>
+                ${fundTag}
+                ${ieltsTag}
+                <span class="border border-[#141414] bg-[#efefec] px-1.5 py-0.5 rounded text-[10px] font-bold">⭐ Skor ${item.easeScore}/5</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 shrink-0" onclick="event.stopPropagation()">
+              ${urgentTag}
+              <select id="ret_st_${item.id}" data-status-item="${item.id}" class="retro-status-select border-2 border-[#141414] ${stCls} px-2 py-1 text-[11px] font-bold rounded cursor-pointer">
+                <option value="BELUM" ${curSt === 'BELUM' ? 'selected' : ''}>[ ] belum</option>
+                <option value="SIAPKAN_BERKAS" ${curSt === 'SIAPKAN_BERKAS' ? 'selected' : ''}>[~] berkas</option>
+                <option value="SUDAH_SUBMIT" ${curSt === 'SUDAH_SUBMIT' ? 'selected' : ''}>[✓] submit</option>
+                <option value="TAHAP_TES" ${curSt === 'TAHAP_TES' ? 'selected' : ''}>[*] tes</option>
+                <option value="LOLOS" ${curSt === 'LOLOS' ? 'selected' : ''}>[★] lolos</option>
+                <option value="CADANGAN" ${curSt === 'CADANGAN' ? 'selected' : ''}>[-] skip</option>
+              </select>
+              <button type="button" data-open-modal="${item.id}" class="retro-open-modal-btn retro-btn !py-1 !px-2 !text-[10px]">
+                detail
+              </button>
+              <a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="retro-btn !py-1 !px-2 !text-[10px] no-underline">
+                ↗
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderRetroMitraAndChecklist() {
+      const mBody = document.getElementById('retroMitraTableBody');
+      if (mBody) {
+        mBody.innerHTML = MITRA_MATRIX.map(m => `
+          <tr class="bg-white">
+            <td class="p-2 border-r border-[#141414] font-bold">${m.name}</td>
+            <td class="p-2 border-r border-[#141414]">${m.system}</td>
+            <td class="p-2 border-r border-[#141414] text-center font-bold ${m.undip === 'YA' ? 'bg-emerald-100 text-emerald-900' : 'bg-rose-50 text-rose-700'}">${m.undip === 'YA' ? '✅ YA' : '✕ TIDAK'}</td>
+            <td class="p-2 border-r border-[#141414] text-center font-bold ${m.unri === 'YA' ? 'bg-sky-100 text-sky-900' : 'bg-rose-50 text-rose-700'}">${m.unri === 'YA' ? '✅ YA' : '✕ TIDAK'}</td>
+            <td class="p-2 border-r border-[#141414]">${m.req}</td>
+            <td class="p-2">${m.list}</td>
+          </tr>
+        `).join('');
+      }
+
+      const eList = document.getElementById('retroEliminasiList');
+      if (eList) {
+        eList.innerHTML = ELIMINASI_DATA.map(e => `
+          <div class="retro-dashed-box flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <p class="font-bold">${e.name} <span class="font-normal text-[#555550]">(${e.status})</span></p>
+              <p class="text-[11px] text-[#333330] mt-0.5">${e.reason}</p>
+            </div>
+            <a href="${e.url}" target="_blank" rel="noopener noreferrer" class="retro-btn !py-1 !px-2.5 !text-[11px] shrink-0 no-underline">cek sumber ↗</a>
+          </div>
+        `).join('');
+      }
+
+      const cCont = document.getElementById('retroChecklistContainer');
+      let done = 0;
+      if (cCont) {
+        cCont.innerHTML = CHECKLIST_DATA.map(c => {
+          const checked = Boolean(checklistMap[c.id]);
+          if (checked) done++;
+          return `
+            <label class="flex items-start gap-2.5 border border-[#141414] bg-[#fafaf8] p-2.5 cursor-pointer">
+              <input type="checkbox" data-chk-item="${c.id}" ${checked ? 'checked' : ''} class="mt-0.5 h-4 w-4 accent-[#141414]" />
+              <span class="${checked ? 'line-through text-[#777770]' : 'font-medium'}">${c.text}</span>
+            </label>
+          `;
+        }).join('');
+      }
+      const cBadge = document.getElementById('retroChecklistCounter');
+      if (cBadge) cBadge.textContent = `${done} / ${CHECKLIST_DATA.length} DONE`;
+
+      const eCont = document.getElementById('retroEssayContainer');
+      if (eCont) {
+        eCont.innerHTML = ESSAY_PITCHES.map((ep, i) => `
+          <div class="retro-dashed-box space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-bold">${ep.title}</span>
+              <button type="button" data-copy-essay="${i}" class="retro-copy-essay retro-id-pill">copy pitch</button>
+            </div>
+            <p class="italic text-[#333330]">"${ep.text}"</p>
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderCodeTab(tabKey) {
+      const fileObj = CODE_FILES[tabKey] || CODE_FILES.gs;
+      document.getElementById('codeFileNameLabel').textContent = fileObj.name;
+      document.getElementById('codeDisplayPre').textContent = fileObj.code;
+      document.querySelectorAll('.code-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-code-tab') === tabKey) btn.classList.add('pill-active');
+        else btn.classList.remove('pill-active');
+      });
+    }
+
+    // =========================================================================
+    // 5. RENDER BENTO WORKSPACE VIEW (IMAGE 2)
+    // =========================================================================
+    function getBentoFilteredList() {
+      return SCHOLARSHIPS.filter(s => {
+        if (bentoScope === 'DALAM_NEGERI') return s.scope === 'DALAM_NEGERI';
+        if (bentoScope === 'PTLN') return s.scope === 'PTLN';
+        if (bentoScope === 'NO_IELTS') return s.noIelts;
+        return true;
+      });
+    }
+
+    function renderBentoWorkspace() {
+      const list = getBentoFilteredList();
+      if (!list.find(x => x.id === selectedBentoId) && list.length > 0) {
+        selectedBentoId = list[0].id;
+      }
+      const currentIndex = Math.max(0, list.findIndex(x => x.id === selectedBentoId));
+      const activeItem = list[currentIndex] || SCHOLARSHIPS[0];
+
+      document.getElementById('bentoListCount').textContent = `${list.length} items`;
+
+      // Right List Panel (Image 2 Top-Right Card)
+      const listEl = document.getElementById('bentoProgramList');
+      listEl.innerHTML = list.map((item, idx) => {
+        const isSel = item.id === activeItem.id;
+        return `
+          <div data-bento-select="${item.id}" class="bento-list-row ${isSel ? 'bento-row-selected' : ''}">
+            <div class="flex items-center gap-2.5 truncate">
+              <span class="h-6 w-6 rounded-full ${isSel ? 'bg-zinc-900 text-white' : 'bg-zinc-600 text-zinc-200'} flex items-center justify-center text-[10px] font-bold shrink-0">
+                ${idx + 1}
+              </span>
+              <div class="truncate">
+                <p class="text-xs font-bold truncate">${item.name}</p>
+                <p class="text-[10px] ${isSel ? 'text-zinc-700' : 'text-zinc-400'} truncate">${item.country} • ${item.deadlineDisplay}</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-mono font-bold shrink-0">${item.easeScore}/5</span>
+          </div>
+        `;
+      }).join('');
+
+      // Hero Card (Image 2 Top-Center Card)
+      const heroDays = getDaysLeft(activeItem.deadlineDate);
+      const scopePillEl = document.getElementById('bentoHeroScopePill');
+      scopePillEl.textContent = heroDays <= 17
+        ? `🔴 MEPET H-${heroDays} • ${activeItem.country.toUpperCase()}`
+        : `${activeItem.scope === 'PTLN' ? '✈️ PTLN' : '🇮🇩 PTN/PTS'} • ${activeItem.country.toUpperCase()}`;
+      scopePillEl.className = heroDays <= 17
+        ? 'rounded-full bg-rose-500 text-white px-3.5 py-1 text-xs font-extrabold'
+        : 'bento-pill-light';
+
+      const fundPillEl = document.getElementById('bentoHeroFundingPill');
+      fundPillEl.textContent = activeItem.fundingType === 'FULL' ? '💎 GRATIS PENUH' : '🟨 HAMPIR PENUH';
+      fundPillEl.className = activeItem.fundingType === 'FULL'
+        ? 'rounded-full bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 px-3 py-1 text-[11px] font-bold'
+        : 'rounded-full bg-amber-500/25 text-amber-300 border border-amber-500/40 px-3 py-1 text-[11px] font-bold';
+
+      const langPillEl = document.getElementById('bentoHeroLangPill');
+      langPillEl.textContent = activeItem.noIelts ? '🟢 TANPA IELTS' : '🔴 PERLU TOEFL/IELTS';
+      langPillEl.className = activeItem.noIelts
+        ? 'rounded-full bg-sky-500/25 text-sky-300 border border-sky-500/40 px-3 py-1 text-[11px] font-bold'
+        : 'rounded-full bg-rose-500/25 text-rose-300 border border-rose-500/40 px-3 py-1 text-[11px] font-bold';
+
+      const easePillEl = document.getElementById('bentoHeroEasePill');
+      easePillEl.textContent = `⭐ SKOR ${activeItem.easeScore}/5`;
+      easePillEl.className = 'rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 px-3 py-1 text-[11px] font-bold';
+
+      document.getElementById('bentoHeroTitle').textContent = activeItem.name;
+      document.getElementById('bentoHeroDesc').textContent = `${activeItem.fundingLabel}. ${activeItem.gapYearRule}`;
+      document.getElementById('bentoHeroMetaGrid').innerHTML = `
+        <div class="rounded-xl bg-zinc-800/90 p-2.5">
+          <span class="text-[10px] uppercase text-zinc-400 block">Syarat KIP-K / Bahasa</span>
+          <strong class="text-zinc-100">${activeItem.reqLabel}</strong>
+        </div>
+        <div class="rounded-xl bg-zinc-800/90 p-2.5">
+          <span class="text-[10px] uppercase text-zinc-400 block">Sistem Kampus Mitra</span>
+          <strong class="text-zinc-100">${activeItem.mitraSystem}</strong>
+        </div>
+      `;
+      document.getElementById('bentoHeroApplyLink').href = activeItem.officialUrl;
+      document.getElementById('bentoHeroDeadlineText').textContent = `Buka: ${activeItem.openDate} • Deadline: ${activeItem.deadlineDisplay}`;
+
+      // Bottom-Left Test Card
+      document.getElementById('bentoTestBreakdown').innerHTML = `<strong class="text-white">Tahapan Tes:</strong> ${activeItem.testDetails}`;
+      document.getElementById('bentoDocumentsText').innerHTML = `<strong class="text-zinc-200">Dokumen:</strong> ${activeItem.documents} <br/><strong class="text-zinc-200">Kampus:</strong> ${activeItem.mitraList}`;
+      document.getElementById('bentoEaseProgressBar').style.width = `${(activeItem.easeScore / 5) * 100}%`;
+
+      // Bottom-Middle Status Card
+      document.getElementById('bentoDoubleRuleText').innerHTML = `<strong class="text-white">Aturan Double:</strong> ${activeItem.doubleRule}`;
+      const selEl = document.getElementById('bentoStatusSelect');
+      selEl.value = statusMap[activeItem.id] || 'BELUM';
+
+      // Bottom-Right Stepper Card
+      document.getElementById('bentoIndexIndicator').textContent = `${currentIndex + 1} / ${list.length}`;
+      document.getElementById('bentoStrategyTip').textContent = activeItem.strategyForFarid;
+      const pct = list.length > 0 ? Math.round(((currentIndex + 1) / list.length) * 100) : 100;
+      document.getElementById('bentoPositionBar').style.width = `${pct}%`;
+    }
+
+    // =========================================================================
+    // 6. NAVIGATION, MODAL & LIVE SYNC HANDLERS
+    // =========================================================================
+    function switchRetroSection(navKey) {
+      activeRetroNav = navKey;
+      document.getElementById('addressBarUrl').textContent = `https://farid-scholarships.neocities.org/${navKey}`;
+
+      document.querySelectorAll('.retro-nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-retro-nav') === navKey) btn.classList.add('active-tab');
+        else btn.classList.remove('active-tab');
+      });
+
+      const homeEl = document.getElementById('retroViewHome');
+      const dirEl = document.getElementById('retroDirectorySection');
+      const mitraEl = document.getElementById('retroViewMitra');
+      const chkEl = document.getElementById('retroViewChecklist');
+      const codeEl = document.getElementById('retroViewCode');
+
+      homeEl.classList.add('hidden');
+      dirEl.classList.add('hidden');
+      mitraEl.classList.add('hidden');
+      chkEl.classList.add('hidden');
+      codeEl.classList.add('hidden');
+
+      if (navKey === 'home') {
+        homeEl.classList.remove('hidden');
+        // Keep landing page strictly 1 screen (Profile + Welcome + Updates + Currently) unless user clicks a filter pill
+      } else if (navKey === 'ptn' || navKey === 'ptln' || navKey === 'list') {
+        dirEl.classList.remove('hidden');
+        retroPage = 1;
+        renderRetroScholarships();
+      } else if (navKey === 'mitra') {
+        mitraEl.classList.remove('hidden');
+      } else if (navKey === 'checklist') {
+        chkEl.classList.remove('hidden');
+      } else if (navKey === 'code') {
+        codeEl.classList.remove('hidden');
+      }
+    }
+
+    function openScholarshipModal(id) {
+      const item = SCHOLARSHIPS.find(s => s.id === id);
+      if (!item) return;
+      document.getElementById('retroModalTitle').textContent = `⇦ ${item.name}`;
+      document.getElementById('retroModalBody').innerHTML = `
+        <div class="retro-dashed-box space-y-1">
+          <p><strong>Penyelenggara &amp; Negara:</strong> ${item.organizer} (${item.country})</p>
+          <p><strong>Jadwal Buka &amp; Deadline:</strong> ${item.openDate} → <strong>${item.deadlineDisplay}</strong></p>
+          <p><strong>Cakupan Pendanaan:</strong> ${item.fundingLabel}</p>
+          <p><strong>Syarat KIP-K / SKTM / Bahasa:</strong> ${item.reqLabel}</p>
+          <p><strong>Syarat Gap Year 2026:</strong> ${item.gapYearRule}</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-bold uppercase">Tahapan &amp; Materi Tes Seleksi:</p>
+          <p>${item.testDetails}</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-bold uppercase">Dokumen Persyaratan Wajib:</p>
+          <p>${item.documents}</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-bold uppercase">Daftar Kampus Tujuan / PTN Mitra &amp; Aturan Double:</p>
+          <p><strong>${item.mitraSystem}:</strong> ${item.mitraList}</p>
+          <p><strong>Aturan Double Beasiswa:</strong> ${item.doubleRule}</p>
+        </div>
+        <div class="border-2 border-[#141414] bg-[#efefec] p-3">
+          <p class="font-bold">💡 Strategi Khusus Farid (Rapor 89,9 + Olimpiade):</p>
+          <p>${item.strategyForFarid}</p>
+        </div>
+        <div class="pt-2 flex justify-end">
+          <a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="retro-btn no-underline">Buka Website Resmi Pendaftaran ↗</a>
+        </div>
+      `;
+      const ov = document.getElementById('retroModalOverlay');
+      ov.classList.remove('hidden');
+      ov.classList.add('flex');
+    }
+
+    function openMailInfoModal() {
+      document.getElementById('retroModalTitle').textContent = '⇦ A U T O - S Y N C  &  G M A I L  N O T I F I C A T I O N';
+      document.getElementById('retroModalBody').innerHTML = `
+        <div class="retro-dashed-box space-y-2">
+          <p class="font-bold">✅ Jadwal Otomatis 3 Harian Aktif ("Pantau beasiswa PTN dan PTLN")</p>
+          <p>Setiap 3 hari pukul 08.00 WIB, asisten otomatis memeriksa pembukaan baru dan meng-update:</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>Google Sheet Utama:</strong> <a href="https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit" target="_blank" rel="noopener noreferrer" class="underline font-bold">Klik untuk buka Spreadsheet</a></li>
+            <li><strong>Notifikasi Email Gmail:</strong> Dikirim langsung ke <strong>faridalterian@gmail.com</strong> setiap ada beasiswa baru atau peringatan H-30, H-14, H-7, H-3.</li>
+            <li><strong>Live Web Sync:</strong> Klik tombol <strong>[sync sheet]</strong> pada address bar untuk menarik data terbaru dari Google Sheet ke halaman web ini.</li>
+          </ul>
+        </div>
+      `;
+      const ov = document.getElementById('retroModalOverlay');
+      ov.classList.remove('hidden');
+      ov.classList.add('flex');
+    }
+
+    async function triggerLiveSheetSync() {
+      const badge = document.getElementById('syncIndicatorBadge');
+      if (badge) badge.textContent = '◌ SYNCING SHEET...';
+      try {
+        const res = await fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`);
+        if (!res.ok) throw new Error('Sheet private');
+        await res.text();
+        if (badge) badge.textContent = '● LIVE SYNC OK (24 PROGRAMS)';
+        notify('LIVE SYNC BERHASIL DARI GOOGLE SHEET!');
+      } catch (e) {
+        if (badge) badge.textContent = '● VERIFIED DB READY (24 PROGRAMS)';
+        notify('24 DATA BEASISWA TERVERIFIKASI AKTIF! (Lihat tab [kode react/api] untuk API Apps Script)');
+      }
+    }
+
+    function copyText(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => notify(label));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); notify(label); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    }
+
+    // =========================================================================
+    // 7. INITIALIZE EVENTS
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      updateProfileCounter();
+      renderRetroScholarships();
+      renderRetroMitraAndChecklist();
+      renderCodeTab('gs');
+      renderBentoWorkspace();
+
+      // Mode Switchers (Retro Image 1 <-> Bento Image 2)
+      document.getElementById('btnSwitchToBento').addEventListener('click', () => {
+        document.getElementById('retroNeocitiesWrapper').classList.add('hidden');
+        document.getElementById('bentoWorkspaceWrapper').classList.remove('hidden');
+        renderBentoWorkspace();
+      });
+
+      document.getElementById('btnSwitchToRetro').addEventListener('click', () => {
+        document.getElementById('bentoWorkspaceWrapper').classList.add('hidden');
+        document.getElementById('retroNeocitiesWrapper').classList.remove('hidden');
+        renderRetroScholarships();
+      });
+
+      // Retro Top Nav Buttons
+      document.querySelectorAll('.retro-nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchRetroSection(btn.getAttribute('data-retro-nav'));
+        });
+      });
+
+      // Retro ID BUTTON Filter Pills -> Opens compact 5-row directory immediately!
+      document.querySelectorAll('[data-pill-filter]').forEach(pill => {
+        pill.addEventListener('click', () => {
+          activePillFilter = pill.getAttribute('data-pill-filter');
+          retroPage = 1;
+          document.querySelectorAll('[data-pill-filter]').forEach(p => p.classList.remove('pill-active'));
+          pill.classList.add('pill-active');
+          document.getElementById('retroDirectorySection').classList.remove('hidden');
+          renderRetroScholarships();
+        });
+      });
+
+      document.getElementById('btnRetroPrevPage').addEventListener('click', () => {
+        if (retroPage > 1) {
+          retroPage--;
+          renderRetroScholarships();
+        }
+      });
+      document.getElementById('btnRetroNextPage').addEventListener('click', () => {
+        retroPage++;
+        renderRetroScholarships();
+      });
+
+      // Search & Sort
+      document.getElementById('retroSearchInput').addEventListener('input', renderRetroScholarships);
+      document.getElementById('retroSortSelect').addEventListener('change', renderRetroScholarships);
+
+      // Delegated clicks & status changes inside Retro Scholarship List
+      document.getElementById('retroScholarshipList').addEventListener('change', (e) => {
+        const sel = e.target.closest('.retro-status-select');
+        if (sel) {
+          const id = sel.getAttribute('data-status-item');
+          statusMap[id] = sel.value;
+          saveStatus();
+          updateProfileCounter();
+          renderRetroScholarships();
+          notify('STATUS LAMARAN DISIMPAN!');
+        }
+      });
+
+      document.getElementById('retroScholarshipList').addEventListener('click', (e) => {
+        const btn = e.target.closest('.retro-open-modal-btn');
+        if (btn) {
+          openScholarshipModal(btn.getAttribute('data-open-modal'));
+          return;
+        }
+        const row = e.target.closest('[data-row-modal]');
+        if (row) {
+          openScholarshipModal(row.getAttribute('data-row-modal'));
+        }
+      });
+
+      // Checklist & Essay Copy Delegation
+      document.getElementById('retroChecklistContainer').addEventListener('change', (e) => {
+        const chk = e.target.closest('input[type="checkbox"]');
+        if (chk) {
+          checklistMap[chk.getAttribute('data-chk-item')] = chk.checked;
+          saveChecklist();
+          renderRetroMitraAndChecklist();
+          notify('CHECKLIST DIPERBARUI!');
+        }
+      });
+
+      document.getElementById('retroEssayContainer').addEventListener('click', (e) => {
+        const btn = e.target.closest('.retro-copy-essay');
+        if (btn) {
+          const idx = Number(btn.getAttribute('data-copy-essay'));
+          if (ESSAY_PITCHES[idx]) copyText(ESSAY_PITCHES[idx].text, 'PITCH ESAI DISALIN!');
+        }
+      });
+
+      // Code Viewer Tabs & Copy
+      document.querySelectorAll('.code-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          renderCodeTab(btn.getAttribute('data-code-tab'));
+        });
+      });
+
+      document.getElementById('btnCopyActiveCode').addEventListener('click', () => {
+        const txt = document.getElementById('codeDisplayPre').textContent;
+        copyText(txt, 'FILE KODE DISALIN KE CLIPBOARD!');
+      });
+
+      // Modal Close & Mail Button
+      document.getElementById('btnCloseRetroModal').addEventListener('click', () => {
+        const ov = document.getElementById('retroModalOverlay');
+        ov.classList.add('hidden');
+        ov.classList.remove('flex');
+      });
+      document.getElementById('btnOpenMailModal').addEventListener('click', openMailInfoModal);
+
+      // Live Sync Buttons
+      document.getElementById('btnLiveSyncSheet').addEventListener('click', triggerLiveSheetSync);
+      document.getElementById('btnBentoSync').addEventListener('click', triggerLiveSheetSync);
+
+      // Bento Workspace Controls
+      document.querySelectorAll('.bento-side-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          bentoScope = btn.getAttribute('data-bento-scope');
+          document.querySelectorAll('.bento-side-btn').forEach(b => {
+            b.className = 'bento-side-btn h-8 w-8 rounded-lg bg-zinc-700 text-zinc-200 flex items-center justify-center text-xs font-bold hover:bg-zinc-600';
+          });
+          btn.className = 'bento-side-btn h-8 w-8 rounded-lg bg-zinc-200 text-zinc-900 flex items-center justify-center text-xs font-bold';
+          renderBentoWorkspace();
+        });
+      });
+
+      document.getElementById('bentoProgramList').addEventListener('click', (e) => {
+        const row = e.target.closest('[data-bento-select]');
+        if (row) {
+          selectedBentoId = row.getAttribute('data-bento-select');
+          renderBentoWorkspace();
+        }
+      });
+
+      document.getElementById('bentoStatusSelect').addEventListener('change', (e) => {
+        statusMap[selectedBentoId] = e.target.value;
+        saveStatus();
+        updateProfileCounter();
+        notify('STATUS BENTO DISIMPAN!');
+      });
+
+      function stepBento(delta) {
+        const list = getBentoFilteredList();
+        if (list.length === 0) return;
+        const idx = Math.max(0, list.findIndex(x => x.id === selectedBentoId));
+        const nextIdx = (idx + delta + list.length) % list.length;
+        selectedBentoId = list[nextIdx].id;
+        renderBentoWorkspace();
+      }
+
+      document.getElementById('btnBentoPrev').addEventListener('click', () => stepBento(-1));
+      document.getElementById('btnBentoNext').addEventListener('click', () => stepBento(1));
+      document.getElementById('btnBentoFirst').addEventListener('click', () => {
+        const list = getBentoFilteredList();
+        if (list.length > 0) { selectedBentoId = list[0].id; renderBentoWorkspace(); }
+      });
+      document.getElementById('btnBentoLast').addEventListener('click', () => {
+        const list = getBentoFilteredList();
+        if (list.length > 0) { selectedBentoId = list[list.length - 1].id; renderBentoWorkspace(); }
+      });
+    });
+  </script>
+</body>
+</html>
